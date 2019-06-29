@@ -3,11 +3,10 @@
 // exit if file is called directly
 defined( 'ABSPATH' ) || exit();
 
-$processUrl = CPF_FORMULA_URL . '/includes/cpf-contribution-process.php';
-
 ?>
 <form class="form-horizontal" role="form" id="cpf_cal_form">
-    <input type="hidden" name="process_url" id="process_url" value="<?php echo $processUrl; ?>">
+    <?php wp_nonce_field('calculate_contribution', '_nonce') ?>
+
     <div class="row">
         <div class="col-md-6">
             <div class="form-group row">

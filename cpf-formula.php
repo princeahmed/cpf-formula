@@ -24,6 +24,7 @@ define( 'CPF_FORMULA_PUBLIC_URL', plugins_url( 'public', __FILE__ ) );
 
 //includes files
 require_once CPF_FORMULA_INCLUDES . '/class-shortcode.php';
+require_once CPF_FORMULA_INCLUDES . '/class-ajax.php';
 
 // includes admin dependencies:
 if ( is_admin() ) {
@@ -41,7 +42,7 @@ function wcf_formula_scripts() {
 	wp_register_style( 'formula-public', CPF_FORMULA_PUBLIC_URL . '/css/public.css', false, 'CPF_FORMULA_VERSION', 'all' );
 
 	wp_register_script( 'formula-birthday', CPF_FORMULA_PUBLIC_URL . '/js/bootstrap-birthday.min.js', [ 'jquery' ], CPF_FORMULA_VERSION, true );
-	wp_register_script( 'formula-public', CPF_FORMULA_PUBLIC_URL . '/js/public.js', [ 'jquery' ], CPF_FORMULA_VERSION, true );
+	wp_register_script( 'formula-public', CPF_FORMULA_PUBLIC_URL . '/js/public.js', [ 'jquery', 'wp-util' ], CPF_FORMULA_VERSION, true );
 
 	//enqueue scripts
 	wp_enqueue_style( 'formula-bootstrap' );

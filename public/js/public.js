@@ -87,25 +87,26 @@
         //calculate contribution
         $('#calculate-contribution').click(function () {
 
-                $.ajax({
-                    url: $('#process_url').val(),
-                    type: 'POST',
-                    dataType: 'json',
-                    data: $('#cpf_cal_form').serialize(),
+            console.log($('#cpf_cal_form').serialize());
 
-                    success: function (response) {
-                        console.log(response);
+            wp.ajax.send('calculate_contribution', {
+                data: {
+                    form_data: $('#cpf_cal_form').serialize()
+                },
 
-                        if (response.status == 'success') {
-                            $('#employee_cpf_contribution').html(response.EmployeesShare);
-                            $('#employer_cpf_contribution').html(response.EmployerShare);
-                            $('#sdl').html(response.sdl);
-                            $('#net_salary').html(response.netSal);
-                            $('#cpf_donation_type_amount').html(response.cpf_donation);
-                        }
+                success: function (response) {
+                    console.log(response);
+
+                    if (response.status == 'success') {
+                        $('#employee_cpf_contribution').html(response.EmployeesShare);
+                        $('#employer_cpf_contribution').html(response.EmployerShare);
+                        $('#sdl').html(response.sdl);
+                        $('#net_salary').html(response.netSal);
+                        $('#cpf_donation_type_amount').html(response.cpf_donation);
                     }
+                }
 
-                });
+            });
         });
 
     });
