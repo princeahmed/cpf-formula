@@ -1,5 +1,7 @@
 <?php
 
+$sdl_percentage = wcf_formula_get_settings('sdl', .25, 'wcf_formula_general_settings');
+
 if ( isset( $_POST['birthday'] ) && ! empty( $_POST['birthday'] ) ) {
 
 	$OrdinaryWages     = (int) $_POST['ow'];
@@ -7,7 +9,7 @@ if ( isset( $_POST['birthday'] ) && ! empty( $_POST['birthday'] ) ) {
 	$citizenship       = $_POST['citizenship'];
 	$CPFDT             = $_POST['CPFDT'];
 	$totalWages        = $OrdinaryWages + (int) $AdditionalWages;
-	$sdl               = ( ( $totalWages * .25 ) / 100 );
+	$sdl               = ( ( $totalWages * $sdl_percentage ) / 100 );
 	$birthdayParam     = $_POST['birthday'];
 	$age               = age_calculate( $birthdayParam );
 	$pr_effective_date = $_POST['pr_effective_date'];
@@ -368,6 +370,7 @@ function cpf_donation_type( $data ) {
 	$cpf_donation      = 0;
 
 	switch ( $cpf_donation_type ) {
+
 		case 'CDAC':
 			if ( $tw <= 2000 ) {
 				$cpf_donation = .50;

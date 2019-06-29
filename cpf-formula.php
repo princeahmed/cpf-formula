@@ -51,3 +51,21 @@ function wcf_formula_scripts() {
 	wp_enqueue_script( 'formula-birthday' );
 	wp_enqueue_script( 'formula-public' );
 }
+
+/**
+ * get settings saved options
+ *
+ * @param        $key
+ * @param string $default
+ * @param string $section
+ *
+ * @since 1.0.0
+ *
+ * @return string|array
+ */
+function wcf_formula_get_settings( $key, $default = '', $section = 'wcf_formula_general_settings' ) {
+
+	$option = get_option( $section, [] );
+
+	return ! empty( $option[ $key ] ) ? $option[ $key ] : $default;
+}

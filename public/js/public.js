@@ -1,6 +1,7 @@
 (function ($) {
 
     $(document).ready(function () {
+
         $('#input-group').bootstrapBirthday({
             widget: {
                 wrapper: {
@@ -93,8 +94,10 @@
                     type: 'POST',
                     dataType: 'json',
                     data: $('#cpf_cal_form').serialize(),
+
                     success: function (response) {
                         console.log(response);
+
                         if (response.status == 'success') {
                             $('#employee_cpf_contribution').html(response.EmployeesShare);
                             $('#employer_cpf_contribution').html(response.EmployerShare);
@@ -103,6 +106,7 @@
                             $('#cpf_donation_type_amount').html(response.cpf_donation);
                         }
                     }
+
                 });
         });
 
