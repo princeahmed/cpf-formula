@@ -21,7 +21,7 @@ if ( isset( $_POST['birthday'] ) && ! empty( $_POST['birthday'] ) ) {
 		];
 
 		$cpf_donation = cpf_donation_type( $cpf_donation_type_param );
-        
+
 	}
 
 	$cpfParam = [

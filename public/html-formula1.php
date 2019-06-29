@@ -20,19 +20,21 @@ $processUrl = CPF_FORMULA_URL . '/includes/cpf-contribution-process.php';
 
 							for ( $m = 1; $m <= 12; $m ++ ) {
 								$month = date( 'M Y', mktime( 0, 0, 0, $m, 1, $y ) );
-								?>
-                                <option value="<?php echo $month; ?>"><?php echo $month; ?></option>
-							<?php }
+
+								printf( '<option value="%s">%1$s</option>', $month );
+							}
 						} ?>
                     </select>
                 </div>
             </div>
+
             <div class="form-group row">
                 <div class="col-md-10">
                     <label for="pwd">Birthday:</label>
                     <input type="text" class="form-control" name="birthday" id="input-group"/>
                 </div>
             </div>
+
             <div class="form-group row">
                 <div class="col-md-8">
                     <label for="usr">Citizenship:</label>
@@ -42,12 +44,14 @@ $processUrl = CPF_FORMULA_URL . '/includes/cpf-contribution-process.php';
                     </select>
                 </div>
             </div>
+
             <div class="form-group row" id="pr_effective_date">
                 <div class="col-md-10">
                     <label for="pwd">PR Effective Date:</label>
                     <input type="text" class="form-control" name="pr_effective_date" id="pr_effective"/>
                 </div>
             </div>
+
             <div class="form-group row">
                 <div class="col-md-8">
                     <label for="usr">CPF Donation Type:</label> <select class="form-control" name="CPFDT" id="CPFDT">
@@ -59,6 +63,7 @@ $processUrl = CPF_FORMULA_URL . '/includes/cpf-contribution-process.php';
                     </select>
                 </div>
             </div>
+
         </div>
         <div class="col-md-6">
             <div class="row">
@@ -68,6 +73,7 @@ $processUrl = CPF_FORMULA_URL . '/includes/cpf-contribution-process.php';
                         <input type="text" class="form-control" id="ow" name="ow">
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <div class="col-md-12">
                         <label for="usr">Bonus/Comission (Add. Wage):</label>
@@ -75,11 +81,13 @@ $processUrl = CPF_FORMULA_URL . '/includes/cpf-contribution-process.php';
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <button type="button" id="calculate-contribution" class="btn btn-primary">Calculate CPF Contribution</button>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-12">
                     <table class="ttable-info align-right">
