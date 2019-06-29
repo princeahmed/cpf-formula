@@ -18,6 +18,7 @@ defined( 'ABSPATH' ) || die( 'ABSPATH is not defined!' );
 
 //Define Constants
 define( 'CPF_FORMULA_VERSION', 'CPF_FORMULA_VERSION' );
+define( 'CPF_FORMULA_URL', plugins_url( '', __FILE__ ) );
 define( 'CPF_FORMULA_ADMIN', dirname( __FILE__ ) . '/admin' );
 define( 'CPF_FORMULA_INCLUDES', dirname( __FILE__ ) . '/includes' );
 define( 'CPF_FORMULA_PUBLIC', dirname( __FILE__ ) . '/public' );

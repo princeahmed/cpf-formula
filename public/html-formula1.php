@@ -3,7 +3,7 @@
 // exit if file is called directly
 defined( 'ABSPATH' ) || exit();
 
-$processUrl = CPF_FORMULA_INCLUDES . '/cpf-contribution-process.php';
+$processUrl = CPF_FORMULA_URL . '/includes/cpf-contribution-process.php';
 
 ?>
 <form class="form-horizontal" role="form" id="cpf_cal_form">

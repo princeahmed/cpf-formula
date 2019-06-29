@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_POST['birthday']) && !empty($_POST['birthday'])){
     $OrdinaryWages      =   (int)$_POST['ow'];
     $AdditionalWages    =   (int)$_POST['aw'];
@@ -44,6 +45,7 @@ function age_calculate($birthdayParam) {
     //get age from date or birthdate
     return $age = (date("md", date("U", mktime(0, 0, 0, $birthdayParam['month'], $birthdayParam['day'], $birthdayParam['year']))) > date("md") ? ((date("Y") - $birthdayParam['year']) - 1) : (date("Y") - $birthdayParam['year']));
 }
+
 function first_year_onwords($data){
     $OrdinaryWages      =   $data['OrdinaryWages'];
     $AdditionalWages    =   $data['AdditionalWages'];
@@ -147,6 +149,7 @@ function first_year_onwords($data){
         'cpf_donation'              => $CPFDT.' $'.$cpf_donation,
     ];
 }
+
 function second_year_onwords($data){
     $OrdinaryWages      =   $data['OrdinaryWages'];
     $AdditionalWages    =   $data['AdditionalWages'];
@@ -249,6 +252,7 @@ function second_year_onwords($data){
         'cpf_donation'              => $CPFDT.' $'.$cpf_donation,
     ];
 }
+
 function third_year_onwords($data){
     $OrdinaryWages      =   $data['OrdinaryWages'];
     $AdditionalWages    =   $data['AdditionalWages'];
@@ -351,10 +355,12 @@ function third_year_onwords($data){
         'cpf_donation'              => $CPFDT.' $'.$cpf_donation,
     ];
 }
+
 function cpf_donation_type($data){
     $cpf_donation_type  =   $data['cpf_donation_type'];
     $tw                 =   $data['tw'];
     $cpf_donation       =   0;
+
     switch($cpf_donation_type){
         case 'CDAC':
             if($tw <= 2000){
