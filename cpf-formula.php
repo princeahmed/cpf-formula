@@ -11,14 +11,17 @@ Author: Tanveer Qureshee
 Author URI:
 License: GPL
 */
+
+
 // exit if file is called directly
 defined('ABSPATH') or die('ABSPATH is not defined!');
+
 ob_start();
 // if admin area:
 if(is_admin() ){
     // include dependencies
-    require_once plugin_dir_path(__FILE__).'admin/admin-menu.php';
-    require_once plugin_dir_path(__FILE__).'admin/settings-page.php';
+    require_once plugin_dir_path(__FILE__).'admin/class-settings-api.php';
+    require_once plugin_dir_path(__FILE__).'admin/class-settings.php';
 }
 
 // register jquery and style on initialization
