@@ -87,8 +87,6 @@
         //calculate contribution
         $('#calculate-contribution').click(function () {
 
-            var data =
-
                 $.ajax({
                     url: $('#process_url').val(),
                     type: 'POST',
