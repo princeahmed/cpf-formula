@@ -7,6 +7,7 @@ $processUrl = CPF_FORMULA_URL . '/includes/cpf-contribution-process.php';
 
 ?>
 <form class="form-horizontal" role="form" id="cpf_cal_form">
+    <input type="hidden" name="process_url" id="process_url" value="<?php echo $processUrl; ?>">
     <div class="row">
         <div class="col-md-6">
             <div class="form-group row">
@@ -35,7 +36,7 @@ $processUrl = CPF_FORMULA_URL . '/includes/cpf-contribution-process.php';
             <div class="form-group row">
                 <div class="col-md-8">
                     <label for="usr">Citizenship:</label>
-                    <select class="form-control" id="citizenship" name="citizenship" onchange="handlePrEffectiveDate(this.value);">
+                    <select class="form-control" id="citizenship" name="citizenship">
                         <option value="SC" selected>Singapore Citizen</option>
                         <option value="SPR">Singapore PR</option>
                     </select>
@@ -76,7 +77,7 @@ $processUrl = CPF_FORMULA_URL . '/includes/cpf-contribution-process.php';
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <button type="button" class="btn btn-primary" onclick="CalculateCPFContribution('<?php echo $processUrl; ?>')">Calculate CPF Contribution</button>
+                    <button type="button" id="calculate-contribution" class="btn btn-primary">Calculate CPF Contribution</button>
                 </div>
             </div>
             <div class="row">

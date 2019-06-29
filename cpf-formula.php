@@ -37,21 +37,20 @@ require_once CPF_FORMULA_INCLUDES . '/class-shortcode.php';
 add_action( 'init', 'cpf_formula_custom_styles' );
 
 function cpf_formula_custom_styles() {
-	wp_register_style( 'formula_bootstrap', CPF_FORMULA_PUBLIC_URL . '/css/bootstrap.min.css', false, 'CPF_FORMULA_VERSION', 'all' );
-	wp_register_style( 'formula_style', CPF_FORMULA_PUBLIC_URL . '/css/style.css', false, 'CPF_FORMULA_VERSION', 'all' );
+	wp_register_style( 'formula-bootstrap', CPF_FORMULA_PUBLIC_URL . '/css/bootstrap.min.css', false, 'CPF_FORMULA_VERSION', 'all' );
+	wp_register_style( 'formula-public', CPF_FORMULA_PUBLIC_URL . '/css/public.css', false, 'CPF_FORMULA_VERSION', 'all' );
 
-	wp_register_script( 'formula_jquery', CPF_FORMULA_PUBLIC_URL . '/js/jquery-3.4.1.min.js' );
-	wp_register_script( 'formula_birthday', CPF_FORMULA_PUBLIC_URL . '/js/bootstrap-birthday.min.js' );
-	wp_register_script( 'formula_site', CPF_FORMULA_PUBLIC_URL . '/js/site_js.js' );
+	wp_register_script( 'formula-birthday', CPF_FORMULA_PUBLIC_URL . '/js/bootstrap-birthday.min.js', [ 'jquery' ], CPF_FORMULA_VERSION, true );
+	wp_register_script( 'formula-public', CPF_FORMULA_PUBLIC_URL . '/js/public.js', [ 'jquery' ], CPF_FORMULA_VERSION, true );
 }
 
 // use the registered jquery and style above
 add_action( 'wp_enqueue_scripts', 'wcf_formula_enqueue_style' );
 
 function wcf_formula_enqueue_style() {
-	wp_enqueue_style( 'formula_bootstrap' );
-	wp_enqueue_style( 'formula_style' );
-	wp_enqueue_script( 'formula_jquery' );
-	wp_enqueue_script( 'formula_birthday' );
-	wp_enqueue_script( 'formula_site' );
+	wp_enqueue_style( 'formula-bootstrap' );
+	wp_enqueue_style( 'formula-public' );
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'formula-birthday' );
+	wp_enqueue_script( 'formula-public' );
 }
