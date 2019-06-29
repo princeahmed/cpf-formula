@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 9, 2019, 10:17:32 PM
+    Author     : Tanveer Qureshee
+*/
+
+.div-center{
+    margin: 0 auto;
+    height: auto;
+    background: lightgray;
+    padding: 3%
+}
+.ttable-info {
+    font-size: 14px;
+    margin: 15px 0;
+    padding: 0;
+    width: 100%;
+}
+
+#pr_effective_date{
+    display: none;
+}
