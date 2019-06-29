@@ -26,12 +26,14 @@ class CPF_Formula_Ajax {
 
 		if ( isset( $form_data['birthday'] ) && ! empty( $form_data['birthday'] ) ) {
 
+			$sdl_percentage = cpf_formula_get_settings( 'sdl' );
+
 			$OrdinaryWages     = (int) $form_data['ow'];
 			$AdditionalWages   = (int) $form_data['aw'];
 			$citizenship       = $form_data['citizenship'];
 			$CPFDT             = $form_data['CPFDT'];
 			$totalWages        = $OrdinaryWages + (int) $AdditionalWages;
-			$sdl               = ( ( $totalWages * .25 ) / 100 );
+			$sdl               = ( ( $totalWages * $sdl_percentage ) / 100 );
 			$birthdayParam     = $form_data['birthday'];
 			$age               = $this->age_calculate( $birthdayParam );
 			$pr_effective_date = $form_data['pr_effective_date'];
@@ -59,6 +61,7 @@ class CPF_Formula_Ajax {
 				'CPFDT'           => $CPFDT,
 				'cpf_donation'    => $cpf_donation,
 			];
+
 			if ( $citizenship == 'SC' || ( $citizenship == 'SPR' && $prage >= 2 ) ) {
 				$feedback = $this->third_year_onwords( $cpfParam );
 			} elseif ( $citizenship == 'SPR' && $prage >= 1 ) {
@@ -90,6 +93,7 @@ class CPF_Formula_Ajax {
 		$age             = $data['age'];
 		$prage           = $data['prage'];
 		$cpf_donation    = $data['cpf_donation'];
+
 		if ( $age <= 55 ) {
 			if ( $totalWages <= 50 ) {
 				$TotalCPFContributions = 0;
@@ -399,77 +403,118 @@ class CPF_Formula_Ajax {
 		$tw                = $data['tw'];
 		$cpf_donation      = 0;
 
+		$cdac_settings = array(
+			'tw_less_than_2'      => cpf_formula_get_settings( 'tw_less_than_2', '.50', 'cpf_formula_cdac_settings' ),
+			'tw_2_to_3.5'         => cpf_formula_get_settings( 'tw_2_to_3.5', '1.00', 'cpf_formula_cdac_settings' ),
+			'tw_3.5_to_5'         => cpf_formula_get_settings( 'tw_3.5_to_5', '1.50', 'cpf_formula_cdac_settings' ),
+			'tw_5_to_7.5'         => cpf_formula_get_settings( 'tw_5_to_7.5', '2.00', 'cpf_formula_cdac_settings' ),
+			'tw_greater_than_7.5' => cpf_formula_get_settings( 'tw_greater_than_7.5', '3.00', 'cpf_formula_cdac_settings' ),
+		);
+
+		$sinda_settings = array(
+			'tw_less_than_1'     => cpf_formula_get_settings( 'tw_less_than_1', '1.0', 'cpf_formula_sinda_settings' ),
+			'tw_1_to_1.5'        => cpf_formula_get_settings( 'tw_1_to_1.5', '3.0', 'cpf_formula_sinda_settings' ),
+			'tw_1.5_to_2.5'      => cpf_formula_get_settings( 'tw_1.5_to_2.5', '5.0', 'cpf_formula_sinda_settings' ),
+			'tw_2.5_to_4.5'      => cpf_formula_get_settings( 'tw_2.5_to_4.5', '7.0', 'cpf_formula_sinda_settings' ),
+			'tw_4.5_to_7.5'      => cpf_formula_get_settings( 'tw_4.5_to_7.5', '9.0', 'cpf_formula_sinda_settings' ),
+			'tw_7.5_to_10'       => cpf_formula_get_settings( 'tw_7.5_to_10', '12.0', 'cpf_formula_sinda_settings' ),
+			'tw_10_to_15'        => cpf_formula_get_settings( 'tw_10_to_15', '18.0', 'cpf_formula_sinda_settings' ),
+			'tw_greater_than_15' => cpf_formula_get_settings( 'tw_greater_than_15', '30.0', 'cpf_formula_sinda_settings' ),
+		);
+
+		$ecf_settings = array(
+			'tw_less_than_1'     => cpf_formula_get_settings( 'tw_less_than_1', '2.0', 'cpf_formula_ecf_settings' ),
+			'tw_1_to_1.5'        => cpf_formula_get_settings( 'tw_1_to_1.5', '4.0', 'cpf_formula_ecf_settings' ),
+			'tw_1.5_to_2.5'      => cpf_formula_get_settings( 'tw_1.5_to_2.5', '6.0', 'cpf_formula_ecf_settings' ),
+			'tw_2.5_to_4'        => cpf_formula_get_settings( 'tw_2.5_to_4', '9.0', 'cpf_formula_ecf_settings' ),
+			'tw_4_to_7'          => cpf_formula_get_settings( 'tw_4_to_7', '12.0', 'cpf_formula_ecf_settings' ),
+			'tw_7_to_10'         => cpf_formula_get_settings( 'tw_7_to_10', '16.0', 'cpf_formula_ecf_settings' ),
+			'tw_greater_than_10' => cpf_formula_get_settings( 'tw_greater_than_10', '20.0', 'cpf_formula_ecf_settings' ),
+		);
+
+		$mbmf_settings = array(
+			'tw_less_than_1'     => cpf_formula_get_settings( 'tw_less_than_1', '3.0', 'cpf_formula_mbmf_settings' ),
+			'tw_1_to_2'          => cpf_formula_get_settings( 'tw_1_to_2', '4.5', 'cpf_formula_mbmf_settings' ),
+			'tw_2_to_3'          => cpf_formula_get_settings( 'tw_2_to_3', '6.5', 'cpf_formula_mbmf_settings' ),
+			'tw_3_to_4'          => cpf_formula_get_settings( 'tw_3_to_4', '15.0', 'cpf_formula_mbmf_settings' ),
+			'tw_4_to_6'          => cpf_formula_get_settings( 'tw_4_to_6', '19.5', 'cpf_formula_mbmf_settings' ),
+			'tw_6_to_8'          => cpf_formula_get_settings( 'tw_6_to_8', '22.0', 'cpf_formula_mbmf_settings' ),
+			'tw_8_to_10'         => cpf_formula_get_settings( 'tw_8_to_10', '24.0', 'cpf_formula_mbmf_settings' ),
+			'tw_greater_than_10' => cpf_formula_get_settings( 'tw_greater_than_10', '26.0', 'cpf_formula_mbmf_settings' ),
+		);
+
+
 		switch ( $cpf_donation_type ) {
 
 			case 'CDAC':
 				if ( $tw <= 2000 ) {
-					$cpf_donation = .50;
+					$cpf_donation = $cdac_settings['tw_less_than_2'];
 				} elseif ( $tw > 2000 && $tw <= 3500 ) {
-					$cpf_donation = 1.00;
+					$cpf_donation = $cdac_settings['tw_2_to_3.5'];
 				} elseif ( $tw > 3500 && $tw <= 5000 ) {
-					$cpf_donation = 1.50;;
+					$cpf_donation = $cdac_settings['tw_3.5_to_5'];
 				} elseif ( $tw > 5000 && $tw <= 7500 ) {
-					$cpf_donation = 2.00;
+					$cpf_donation = $cdac_settings['tw_5_to_7.5'];
 				} elseif ( $tw > 7500 ) {
-					$cpf_donation = 3.00;
+					$cpf_donation = $cdac_settings['tw_greater_than_7.5'];
 				}
 				break;
 
 			case 'SINDA':
 				if ( $tw <= 1000 ) {
-					$cpf_donation = 1.0;
+					$cpf_donation = $sinda_settings['tw_less_than_1'];
 				} elseif ( $tw > 1000 && $tw <= 1500 ) {
-					$cpf_donation = 3.0;
+					$cpf_donation = $sinda_settings['tw_1_to_1.5'];
 				} elseif ( $tw > 1500 && $tw <= 2500 ) {
-					$cpf_donation = 5.0;
+					$cpf_donation = $sinda_settings['tw_1.5_to_2.5'];
 				} elseif ( $tw > 2500 && $tw <= 4500 ) {
-					$cpf_donation = 7.0;
+					$cpf_donation = $sinda_settings['tw_2.5_to_4.5'];
 				} elseif ( $tw > 4500 && $tw <= 7500 ) {
-					$cpf_donation = 9.0;
+					$cpf_donation = $sinda_settings['tw_4.5_to_7.5'];
 				} elseif ( $tw > 7500 && $tw <= 10000 ) {
-					$cpf_donation = 12.0;
+					$cpf_donation = $sinda_settings['tw_7.5_to_10'];
 				} elseif ( $tw > 10000 && $tw <= 15000 ) {
-					$cpf_donation = 18.0;
+					$cpf_donation = $sinda_settings['tw_10_to_15'];
 				} elseif ( $tw > 15000 ) {
-					$cpf_donation = 30.0;
+					$cpf_donation = $sinda_settings['tw_greater_than_15'];
 				}
 				break;
 
 			case 'ECF':
 				if ( $tw <= 1000 ) {
-					$cpf_donation = 2.0;
+					$cpf_donation = $ecf_settings['tw_less_than_1'];
 				} elseif ( $tw > 1000 && $tw <= 1500 ) {
-					$cpf_donation = 4.0;
+					$cpf_donation = $ecf_settings['tw_1_to_1.5'];
 				} elseif ( $tw > 1500 && $tw <= 2500 ) {
-					$cpf_donation = 6.0;
+					$cpf_donation = $ecf_settings['tw_1.5_to_2.5'];
 				} elseif ( $tw > 2500 && $tw <= 4000 ) {
-					$cpf_donation = 9.0;
+					$cpf_donation = $ecf_settings['tw_2.5_to_4'];
 				} elseif ( $tw > 4000 && $tw <= 7000 ) {
-					$cpf_donation = 12.0;
+					$cpf_donation = $ecf_settings['tw_4_to_7'];
 				} elseif ( $tw > 7000 && $tw <= 10000 ) {
-					$cpf_donation = 16.0;
+					$cpf_donation = $ecf_settings['tw_7_to_10'];
 				} elseif ( $tw > 10000 ) {
-					$cpf_donation = 20.0;
+					$cpf_donation = $ecf_settings['tw_greater_than_10'];
 				}
 				break;
 
 			case 'MBMF':
 				if ( $tw <= 1000 ) {
-					$cpf_donation = 3.0;
+					$cpf_donation = $mbmf_settings['tw_less_than_1'];
 				} elseif ( $tw > 1000 && $tw <= 2000 ) {
-					$cpf_donation = 4.50;
+					$cpf_donation = $mbmf_settings['tw_1_to_2'];
 				} elseif ( $tw > 2000 && $tw <= 3000 ) {
-					$cpf_donation = 6.50;
+					$cpf_donation = $mbmf_settings['tw_2_to_3'];
 				} elseif ( $tw > 3000 && $tw <= 4000 ) {
-					$cpf_donation = 15.00;
+					$cpf_donation = $mbmf_settings['tw_3_to_4'];
 				} elseif ( $tw > 4000 && $tw <= 6000 ) {
-					$cpf_donation = 19.50;
+					$cpf_donation = $mbmf_settings['tw_4_to_6'];
 				} elseif ( $tw > 6000 && $tw <= 8000 ) {
-					$cpf_donation = 22.0;
+					$cpf_donation = $mbmf_settings['tw_6_to_8'];
 				} elseif ( $tw > 8000 && $tw <= 10000 ) {
-					$cpf_donation = 24.0;
+					$cpf_donation = $mbmf_settings['tw_8_to_10'];
 				} elseif ( $tw > 10000 ) {
-					$cpf_donation = 26.0;
+					$cpf_donation = $mbmf_settings['tw_greater_than_10'];
 				}
 				break;
 			default :

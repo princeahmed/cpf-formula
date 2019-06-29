@@ -64,7 +64,7 @@ function wcf_formula_scripts() {
  *
  * @return string|array
  */
-function wcf_formula_get_settings( $key, $default = '', $section = 'wcf_formula_general_settings' ) {
+function cpf_formula_get_settings( $key, $default = '', $section = 'wcf_formula_general_settings' ) {
 
 	$option = get_option( $section, [] );
 
