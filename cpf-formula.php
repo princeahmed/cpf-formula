@@ -1,7 +1,5 @@
 <?php
-/**
- * @package CPFFormula
- */
+
 /*
 Plugin Name: CPF Formula
 Plugin URI: 
@@ -24,32 +22,31 @@ define( 'CPF_FORMULA_INCLUDES', dirname( __FILE__ ) . '/includes' );
 define( 'CPF_FORMULA_PUBLIC', dirname( __FILE__ ) . '/public' );
 define( 'CPF_FORMULA_PUBLIC_URL', plugins_url( 'public', __FILE__ ) );
 
-// if admin area, includes amin files:
+//includes files
+require_once CPF_FORMULA_INCLUDES . '/class-shortcode.php';
+
+// includes admin dependencies:
 if ( is_admin() ) {
-	// include dependencies
 	require_once CPF_FORMULA_ADMIN . '/class-settings-api.php';
 	require_once CPF_FORMULA_ADMIN . '/class-settings.php';
 }
 
-require_once CPF_FORMULA_INCLUDES . '/class-shortcode.php';
 
-// register jquery and style on initialization
-add_action( 'init', 'cpf_formula_custom_styles' );
+// register and enqueue scripts
+add_action( 'wp_enqueue_scripts', 'wcf_formula_scripts' );
 
-function cpf_formula_custom_styles() {
+function wcf_formula_scripts() {
+	//register scripts
 	wp_register_style( 'formula-bootstrap', CPF_FORMULA_PUBLIC_URL . '/css/bootstrap.min.css', false, 'CPF_FORMULA_VERSION', 'all' );
 	wp_register_style( 'formula-public', CPF_FORMULA_PUBLIC_URL . '/css/public.css', false, 'CPF_FORMULA_VERSION', 'all' );
 
 	wp_register_script( 'formula-birthday', CPF_FORMULA_PUBLIC_URL . '/js/bootstrap-birthday.min.js', [ 'jquery' ], CPF_FORMULA_VERSION, true );
 	wp_register_script( 'formula-public', CPF_FORMULA_PUBLIC_URL . '/js/public.js', [ 'jquery' ], CPF_FORMULA_VERSION, true );
-}
 
-// use the registered jquery and style above
-add_action( 'wp_enqueue_scripts', 'wcf_formula_enqueue_style' );
-
-function wcf_formula_enqueue_style() {
+	//enqueue scripts
 	wp_enqueue_style( 'formula-bootstrap' );
 	wp_enqueue_style( 'formula-public' );
+
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'formula-birthday' );
 	wp_enqueue_script( 'formula-public' );
