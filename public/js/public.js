@@ -87,8 +87,6 @@
         //calculate contribution
         $('#calculate-contribution').click(function () {
 
-            console.log($('#cpf_cal_form').serialize());
-
             wp.ajax.send('calculate_contribution', {
                 data: {
                     form_data: $('#cpf_cal_form').serialize()
@@ -104,6 +102,10 @@
                         $('#net_salary').html(response.netSal);
                         $('#cpf_donation_type_amount').html(response.cpf_donation);
                     }
+                },
+
+                error: function (error) {
+                    console.log(error);
                 }
 
             });

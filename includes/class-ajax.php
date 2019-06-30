@@ -26,7 +26,7 @@ class CPF_Formula_Ajax {
 
 		if ( isset( $form_data['birthday'] ) && ! empty( $form_data['birthday'] ) ) {
 
-			$sdl_percentage = cpf_formula_get_settings( 'sdl' );
+			$sdl_percentage = cpf_formula_get_settings( 'sdl', .25 );
 
 			$OrdinaryWages     = (int) $form_data['ow'];
 			$AdditionalWages   = (int) $form_data['aw'];

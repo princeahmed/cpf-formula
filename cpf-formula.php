@@ -34,9 +34,9 @@ if ( is_admin() ) {
 
 
 // register and enqueue scripts
-add_action( 'wp_enqueue_scripts', 'wcf_formula_scripts' );
+add_action( 'wp_enqueue_scripts', 'cpf_formula_scripts' );
 
-function wcf_formula_scripts() {
+function cpf_formula_scripts() {
 	//register scripts
 	wp_register_style( 'formula-bootstrap', CPF_FORMULA_PUBLIC_URL . '/css/bootstrap.min.css', false, 'CPF_FORMULA_VERSION', 'all' );
 	wp_register_style( 'formula-public', CPF_FORMULA_PUBLIC_URL . '/css/public.css', false, 'CPF_FORMULA_VERSION', 'all' );
@@ -64,7 +64,7 @@ function wcf_formula_scripts() {
  *
  * @return string|array
  */
-function cpf_formula_get_settings( $key, $default = '', $section = 'wcf_formula_general_settings' ) {
+function cpf_formula_get_settings( $key, $default = '', $section = 'cpf_formula_general_settings' ) {
 
 	$option = get_option( $section, [] );
 
