@@ -51,6 +51,22 @@ class CPF_Formula_Settings {
 				'id'    => 'cpf_formula_mbmf_settings',
 				'title' => __( 'MBMF Donation', 'cpf-formula' )
 			),
+
+			array(
+				'id'    => 'cpf_formula_1st_spr',
+				'title' => __( '1st year of SPR status', 'cpf-formula' )
+			),
+
+			array(
+				'id'    => 'cpf_formula_2nd_spr',
+				'title' => __( '2nd year of SPR status', 'cpf-formula' )
+			),
+
+			array(
+				'id'    => 'cpf_formula_3rd_spr',
+				'title' => __( '3rd year of SPR status', 'cpf-formula' )
+			),
+
 		);
 
 		return apply_filters( 'cpf_formula_settings_sections', $sections );
@@ -270,7 +286,7 @@ class CPF_Formula_Settings {
 			),
 
 			//MBMF
-			'cpf_formula_mbmf_settings'     => array(
+			'cpf_formula_mbmf_settings'    => array(
 				array(
 					'name'    => 'tw_less_than_1',
 					'label'   => __( 'Total Wages < 1000', 'cpf-formula' ),
@@ -342,6 +358,333 @@ class CPF_Formula_Settings {
 					'default' => 26.0,
 					'type'    => 'number',
 					'min'     => 0,
+				),
+			),
+
+			//1st year spr status
+			'cpf_formula_1st_spr'          => array(
+				//
+				array(
+					'name'    => '<=55',
+					'default' => 'Employer Age 55 & below',
+					'type'    => 'heading',
+					'class'   => 'prince-settings-heading-tr',
+				),
+
+				array(
+					'name'    => '<=55tw<=50_e_e_shares',
+					'label'   => 'Total Wages <=50',
+					'default' => '0',
+					'desc'    => 'Enter employee\'s & employer\'s share, when total wages <= 50',
+					'type'    => 'text',
+				),
+
+				array(
+					'name'    => '<=55tw<=50_e_shares',
+					'default' => '0',
+					'desc'    => 'Enter employee\'s share, when total wages <= 50',
+					'type'    => 'text',
+				),
+				//---------> $50 to $500
+
+				array(
+					'name'    => '<=55tw50_500_e_e_shares',
+					'label'   => 'Total Wages > $50 to $500',
+					'default' => '17',
+					'desc'    => 'Enter employee\'s & employer\'s share, when total wages > $50 to $500 <b>( a% (TW) )</b>',
+					'type'    => 'text',
+				),
+
+				array(
+					'name'    => '<=55tw50_500_e_shares',
+					'default' => '0',
+					'desc'    => 'Enter employee\'s share, when total wages > $50 to $500',
+					'type'    => 'text',
+				),
+				//---------> $500 to < $750
+
+				array(
+					'name'     => '<=55tw500_750_e_e_shares',
+					'name2'    => '<=55tw500_750_e_e_shares2',
+					'label'    => 'Total Wages > $500 to < $750',
+					'default'  => '17',
+					'default2' => '0.6',
+					'desc'     => 'Enter employee\'s & employer\'s share, when total wages > $500 to < $750 <b>(a% (TW) + b (TW - $500))</b>',
+					'type'     => 'text',
+					'double'   => 'double',
+				),
+
+				array(
+					'name'    => '<=55tw500_750_e_shares',
+					'default' => '0.6',
+					'desc'    => 'Enter employee\'s share, when total wages > $500 to < $750 <b>a (TW - $500)</b>',
+					'type'    => 'text',
+				),
+				//---------≥ $750
+
+				array(
+					'name'     => '<=55tw>=750_e_e_shares',
+					'name2'    => '<=55tw>=750_e_e_shares2',
+					'label'    => 'Total Wages ≥ $750',
+					'default'  => '37',
+					'default2' => '37',
+					'desc'     => 'Enter employee\'s & employer\'s share, when total wages ≥ $750 
+								  <b>[a% (OW)]* + b% (AW)</b>',
+					'type'     => 'text',
+					'double'   => 'double',
+				),
+
+				array(
+					'name'     => '<=55tw>=750_e_shares',
+					'default'  => '20',
+					'name2'    => '<=55tw>=750_e_shares2',
+					'default2' => '20',
+					'desc'     => 'Enter employee\'s share, when total wages ≥ $750 <b>[a% (OW)]* + b% (AW)</b>',
+					'type'     => 'text',
+					'double'   => 'text',
+				),
+
+				//
+				array(
+					'name'    => '50-60',
+					'default' => 'Employer Age Above 55 - 60',
+					'type'    => 'heading',
+					'class'   => 'prince-settings-heading-tr',
+				),
+
+				array(
+					'name'    => '50-60-tw<=50_e_e_shares',
+					'label'   => 'Total Wages <=50',
+					'default' => '0',
+					'desc'    => 'Enter employee\'s & employer\'s share, when total wages <= 50',
+					'type'    => 'text',
+				),
+
+				array(
+					'name'    => '50-60-tw<=50_e_shares',
+					'default' => '0',
+					'desc'    => 'Enter employee\'s share, when total wages <= 50',
+					'type'    => 'text',
+				),
+				//---------> $50 to $500
+
+				array(
+					'name'    => '50-60-tw50_500_e_e_shares',
+					'label'   => 'Total Wages > $50 to $500',
+					'default' => '13',
+					'desc'    => 'Enter employee\'s & employer\'s share, when total wages > $50 to $500 <b>( a% (TW) )</b>',
+					'type'    => 'text',
+				),
+
+				array(
+					'name'    => '50-60-tw50_500_e_shares',
+					'default' => '0',
+					'desc'    => 'Enter employee\'s share, when total wages > $50 to $500',
+					'type'    => 'text',
+				),
+				//---------> $500 to < $750
+
+				array(
+					'name'     => '50-60-tw500_750_e_e_shares',
+					'name2'    => '50-60-tw500_750_e_e_shares2',
+					'label'    => 'Total Wages > $500 to < $750',
+					'default'  => '13',
+					'default2' => '0.39',
+					'desc'     => 'Enter employee\'s & employer\'s share, when total wages > $500 to < $750 <b>(a% (TW) + b (TW - $500))</b>',
+					'type'     => 'text',
+					'double'   => 'double',
+				),
+
+				array(
+					'name'    => '50-60-tw500_750_e_shares',
+					'default' => '0.39',
+					'desc'    => 'Enter employee\'s share, when total wages > $500 to < $750 <b>a (TW - $500)</b>',
+					'type'    => 'text',
+				),
+				//---------≥ $750
+
+				array(
+					'name'     => '50-60-tw>=750_e_e_shares',
+					'name2'    => '50-60-tw>=750_e_e_shares2',
+					'label'    => 'Total Wages ≥ $750',
+					'default'  => '26',
+					'default2' => '26',
+					'desc'     => 'Enter employee\'s & employer\'s share, when total wages ≥ $750 
+								  <b>[a% (OW)]* + b% (AW)</b>',
+					'type'     => 'text',
+					'double'   => 'double',
+				),
+
+				array(
+					'name'     => '50-60-tw>=750_e_shares',
+					'default'  => '13',
+					'name2'    => '50-60-tw>=750_e_shares2',
+					'default2' => '13',
+					'desc'     => 'Enter employee\'s share, when total wages ≥ $750 <b>[a% (OW)]* + b% (AW)</b>',
+					'type'     => 'text',
+					'double'   => 'text',
+				),
+
+				//====60-65
+				array(
+					'name'    => '60-65',
+					'default' => 'Employer Age Above 60 - 65',
+					'type'    => 'heading',
+					'class'   => 'prince-settings-heading-tr',
+				),
+
+				array(
+					'name'    => '60-65-tw<=50_e_e_shares',
+					'label'   => 'Total Wages <=50',
+					'default' => '0',
+					'desc'    => 'Enter employee\'s & employer\'s share, when total wages <= 50',
+					'type'    => 'text',
+				),
+
+				array(
+					'name'    => '60-65-tw<=50_e_shares',
+					'default' => '0',
+					'desc'    => 'Enter employee\'s share, when total wages <= 50',
+					'type'    => 'text',
+				),
+				//---------> $50 to $500
+
+				array(
+					'name'    => '60-65-tw50_500_e_e_shares',
+					'label'   => 'Total Wages > $50 to $500',
+					'default' => '9',
+					'desc'    => 'Enter employee\'s & employer\'s share, when total wages > $50 to $500 <b>( a% (TW) )</b>',
+					'type'    => 'text',
+				),
+
+				array(
+					'name'    => '60-65-tw50_500_e_shares',
+					'default' => '0',
+					'desc'    => 'Enter employee\'s share, when total wages > $50 to $500',
+					'type'    => 'text',
+				),
+				//---------> $500 to < $750
+
+				array(
+					'name'     => '60-65-tw500_750_e_e_shares',
+					'name2'    => '60-65-tw500_750_e_e_shares2',
+					'label'    => 'Total Wages > $500 to < $750',
+					'default'  => '9',
+					'default2' => '0.225',
+					'desc'     => 'Enter employee\'s & employer\'s share, when total wages > $500 to < $750 <b>(a% (TW) + b (TW - $500))</b>',
+					'type'     => 'text',
+					'double'   => 'double',
+				),
+
+				array(
+					'name'    => '60-65-tw500_750_e_shares',
+					'default' => '0.225',
+					'desc'    => 'Enter employee\'s share, when total wages > $500 to < $750 <b>a (TW - $500)</b>',
+					'type'    => 'text',
+				),
+				//---------≥ $750
+
+				array(
+					'name'     => '60-65-tw>=750_e_e_shares',
+					'name2'    => '60-65-tw>=750_e_e_shares2',
+					'label'    => 'Total Wages ≥ $750',
+					'default'  => '16.5',
+					'default2' => '16.5',
+					'desc'     => 'Enter employee\'s & employer\'s share, when total wages ≥ $750 
+								  <b>[a% (OW)]* + b% (AW)</b>',
+					'type'     => 'text',
+					'double'   => 'double',
+				),
+
+				array(
+					'name'     => '60-65-tw>=750_e_shares',
+					'default'  => '7.5',
+					'name2'    => '60-65-tw>=750_e_shares2',
+					'default2' => '7.5',
+					'desc'     => 'Enter employee\'s share, when total wages ≥ $750 <b>[a% (OW)]* + b% (AW)</b>',
+					'type'     => 'text',
+					'double'   => 'text',
+				),
+
+				//====above 65==========================
+				array(
+					'name'    => '>65',
+					'default' => 'Employer Age Above 65',
+					'type'    => 'heading',
+					'class'   => 'prince-settings-heading-tr',
+				),
+
+				array(
+					'name'    => '>65-tw<=50_e_e_shares',
+					'label'   => 'Total Wages <=50',
+					'default' => '0',
+					'desc'    => 'Enter employee\'s & employer\'s share, when total wages <= 50',
+					'type'    => 'text',
+				),
+
+				array(
+					'name'    => '>65-tw<=50_e_shares',
+					'default' => '0',
+					'desc'    => 'Enter employee\'s share, when total wages <= 50',
+					'type'    => 'text',
+				),
+				//---------> $50 to $500
+
+				array(
+					'name'    => '>65-tw50_500_e_e_shares',
+					'label'   => 'Total Wages > $50 to $500',
+					'default' => '7.5',
+					'desc'    => 'Enter employee\'s & employer\'s share, when total wages > $50 to $500 <b>( a% (TW) )</b>',
+					'type'    => 'text',
+				),
+
+				array(
+					'name'    => '>65-tw50_500_e_shares',
+					'default' => '0',
+					'desc'    => 'Enter employee\'s share, when total wages > $50 to $500',
+					'type'    => 'text',
+				),
+				//---------> $500 to < $750
+
+				array(
+					'name'     => '>65-tw500_750_e_e_shares',
+					'name2'    => '>65-tw500_750_e_e_shares2',
+					'label'    => 'Total Wages > $500 to < $750',
+					'default'  => '7.5',
+					'default2' => '0.15',
+					'desc'     => 'Enter employee\'s & employer\'s share, when total wages > $500 to < $750 <b>(a% (TW) + b (TW - $500))</b>',
+					'type'     => 'text',
+					'double'   => 'double',
+				),
+
+				array(
+					'name'    => '>65-tw500_750_e_shares',
+					'default' => '0.225',
+					'desc'    => 'Enter employee\'s share, when total wages > $500 to < $750 <b>a (TW - $500)</b>',
+					'type'    => 'text',
+				),
+				//---------≥ $750
+
+				array(
+					'name'     => '>65-tw>=750_e_e_shares',
+					'name2'    => '>65-tw>=750_e_e_shares2',
+					'label'    => 'Total Wages ≥ $750',
+					'default'  => '12.5',
+					'default2' => '12.5',
+					'desc'     => 'Enter employee\'s & employer\'s share, when total wages ≥ $750 
+								  <b>[a% (OW)]* + b% (AW)</b>',
+					'type'     => 'text',
+					'double'   => 'double',
+				),
+
+				array(
+					'name'     => '>65-tw>=750_e_shares',
+					'default'  => '5',
+					'name2'    => '>65-tw>=750_e_shares2',
+					'default2' => '5',
+					'desc'     => 'Enter employee\'s share, when total wages ≥ $750 <b>[a% (OW)]* + b% (AW)</b>',
+					'type'     => 'text',
+					'double'   => 'text',
 				),
 			),
 		);

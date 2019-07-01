@@ -112,6 +112,7 @@ class CPF_Formula_Ajax {
 				$EmployeesShare        = ( ( ( $OrdinaryWages * 5 ) / 100 ) + ( ( $AdditionalWages * 5 ) / 100 ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
+
 		} elseif ( $age > 55 && $age < 60 ) {
 			if ( $totalWages <= 50 ) {
 				$TotalCPFContributions = 0;
