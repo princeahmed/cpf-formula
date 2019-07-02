@@ -11,7 +11,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '<=55tw<=50_e_e_shares',
+			'name'    => '55_tw_50_e_e_shares',
 			'label'   => 'Total Wages <=50',
 			'default' => '0',
 			'desc'    => 'Enter employee\'s & employer\'s share, when total wages <= 50',
@@ -19,7 +19,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '<=55tw<=50_e_shares',
+			'name'    => '55_tw_50_e_shares',
 			'default' => '0',
 			'desc'    => 'Enter employee\'s share, when total wages <= 50',
 			'type'    => 'text',
@@ -27,7 +27,7 @@ function cpf_formula_3rd_year_spr(){
 		//---------> $50 to $500
 
 		array(
-			'name'    => '<=55tw50_500_e_e_shares',
+			'name'    => '55_tw_50_500_e_e_shares',
 			'label'   => 'Total Wages > $50 to $500',
 			'default' => '17',
 			'desc'    => 'Enter employee\'s & employer\'s share, when total wages > $50 to $500 <b>( a% (TW) )</b>',
@@ -35,7 +35,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '<=55tw50_500_e_shares',
+			'name'    => '55_tw_50_500_e_shares',
 			'default' => '0',
 			'desc'    => 'Enter employee\'s share, when total wages > $50 to $500',
 			'type'    => 'text',
@@ -43,8 +43,8 @@ function cpf_formula_3rd_year_spr(){
 		//---------> $500 to < $750
 
 		array(
-			'name'     => '<=55tw500_750_e_e_shares',
-			'name2'    => '<=55tw500_750_e_e_shares2',
+			'name'     => '55_tw_500_750_e_e_shares',
+			'name2'    => '55_tw_500_750_e_e_shares2',
 			'label'    => 'Total Wages > $500 to < $750',
 			'default'  => '17',
 			'default2' => '0.6',
@@ -54,7 +54,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '<=55tw500_750_e_shares',
+			'name'    => '55_tw_500_750_e_shares',
 			'default' => '0.6',
 			'desc'    => 'Enter employee\'s share, when total wages > $500 to < $750 <b>a (TW - $500)</b>',
 			'type'    => 'text',
@@ -62,8 +62,8 @@ function cpf_formula_3rd_year_spr(){
 		//---------≥ $750
 
 		array(
-			'name'     => '<=55tw>=750_e_e_shares',
-			'name2'    => '<=55tw>=750_e_e_shares2',
+			'name'     => '55_tw_750_e_e_shares',
+			'name2'    => '55_tw_750_e_e_shares2',
 			'label'    => 'Total Wages ≥ $750',
 			'default'  => '37',
 			'default2' => '37',
@@ -74,9 +74,9 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'     => '<=55tw>=750_e_shares',
+			'name'     => '55_tw_750_e_shares',
 			'default'  => '20',
-			'name2'    => '<=55tw>=750_e_shares2',
+			'name2'    => '55_tw_750_e_shares2',
 			'default2' => '20',
 			'desc'     => 'Enter employee\'s share, when total wages ≥ $750 <b>[a% (OW)]* + b% (AW)</b>',
 			'type'     => 'text',
@@ -92,7 +92,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '50-60-tw<=50_e_e_shares',
+			'name'    => '50_60_tw_<_50_e_e_shares',
 			'label'   => 'Total Wages <=50',
 			'default' => '0',
 			'desc'    => 'Enter employee\'s & employer\'s share, when total wages <= 50',
@@ -100,7 +100,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '50-60-tw<=50_e_shares',
+			'name'    => '50_60_tw_<_50_e_shares',
 			'default' => '0',
 			'desc'    => 'Enter employee\'s share, when total wages <= 50',
 			'type'    => 'text',
@@ -108,7 +108,7 @@ function cpf_formula_3rd_year_spr(){
 		//---------> $50 to $500
 
 		array(
-			'name'    => '50-60-tw50_500_e_e_shares',
+			'name'    => '50_60_tw_50_500_e_e_shares',
 			'label'   => 'Total Wages > $50 to $500',
 			'default' => '13',
 			'desc'    => 'Enter employee\'s & employer\'s share, when total wages > $50 to $500 <b>( a% (TW) )</b>',
@@ -116,7 +116,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '50-60-tw50_500_e_shares',
+			'name'    => '50_60_tw_50_500_e_shares',
 			'default' => '0',
 			'desc'    => 'Enter employee\'s share, when total wages > $50 to $500',
 			'type'    => 'text',
@@ -124,8 +124,8 @@ function cpf_formula_3rd_year_spr(){
 		//---------> $500 to < $750
 
 		array(
-			'name'     => '50-60-tw500_750_e_e_shares',
-			'name2'    => '50-60-tw500_750_e_e_shares2',
+			'name'     => '50_60_tw_500_750_e_e_shares',
+			'name2'    => '50_60_tw_500_750_e_e_shares2',
 			'label'    => 'Total Wages > $500 to < $750',
 			'default'  => '13',
 			'default2' => '0.39',
@@ -135,7 +135,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '50-60-tw500_750_e_shares',
+			'name'    => '50_60_tw_500_750_e_shares',
 			'default' => '0.39',
 			'desc'    => 'Enter employee\'s share, when total wages > $500 to < $750 <b>a (TW - $500)</b>',
 			'type'    => 'text',
@@ -143,8 +143,8 @@ function cpf_formula_3rd_year_spr(){
 		//---------≥ $750
 
 		array(
-			'name'     => '50-60-tw>=750_e_e_shares',
-			'name2'    => '50-60-tw>=750_e_e_shares2',
+			'name'     => '50_60_tw_750_e_e_shares',
+			'name2'    => '50_60_tw_750_e_e_shares2',
 			'label'    => 'Total Wages ≥ $750',
 			'default'  => '26',
 			'default2' => '26',
@@ -155,9 +155,9 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'     => '50-60-tw>=750_e_shares',
+			'name'     => '50_60_tw_750_e_shares',
+			'name2'    => '50_60_tw_750_e_shares2',
 			'default'  => '13',
-			'name2'    => '50-60-tw>=750_e_shares2',
 			'default2' => '13',
 			'desc'     => 'Enter employee\'s share, when total wages ≥ $750 <b>[a% (OW)]* + b% (AW)</b>',
 			'type'     => 'text',
@@ -173,7 +173,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '60-65-tw<=50_e_e_shares',
+			'name'    => '60_65_tw_50_e_e_shares',
 			'label'   => 'Total Wages <=50',
 			'default' => '0',
 			'desc'    => 'Enter employee\'s & employer\'s share, when total wages <= 50',
@@ -181,7 +181,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '60-65-tw<=50_e_shares',
+			'name'    => '60_65_tw_50_e_shares',
 			'default' => '0',
 			'desc'    => 'Enter employee\'s share, when total wages <= 50',
 			'type'    => 'text',
@@ -189,7 +189,7 @@ function cpf_formula_3rd_year_spr(){
 		//---------> $50 to $500
 
 		array(
-			'name'    => '60-65-tw50_500_e_e_shares',
+			'name'    => '60_65_tw_50_500_e_e_shares',
 			'label'   => 'Total Wages > $50 to $500',
 			'default' => '9',
 			'desc'    => 'Enter employee\'s & employer\'s share, when total wages > $50 to $500 <b>( a% (TW) )</b>',
@@ -197,7 +197,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '60-65-tw50_500_e_shares',
+			'name'    => '60_65_tw_50_500_e_shares',
 			'default' => '0',
 			'desc'    => 'Enter employee\'s share, when total wages > $50 to $500',
 			'type'    => 'text',
@@ -205,8 +205,8 @@ function cpf_formula_3rd_year_spr(){
 		//---------> $500 to < $750
 
 		array(
-			'name'     => '60-65-tw500_750_e_e_shares',
-			'name2'    => '60-65-tw500_750_e_e_shares2',
+			'name'     => '60_65_tw_500_750_e_e_shares',
+			'name2'    => '60_65_tw_500_750_e_e_shares2',
 			'label'    => 'Total Wages > $500 to < $750',
 			'default'  => '9',
 			'default2' => '0.225',
@@ -216,7 +216,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '60-65-tw500_750_e_shares',
+			'name'    => '60_65_tw_500_750_e_shares',
 			'default' => '0.225',
 			'desc'    => 'Enter employee\'s share, when total wages > $500 to < $750 <b>a (TW - $500)</b>',
 			'type'    => 'text',
@@ -224,8 +224,8 @@ function cpf_formula_3rd_year_spr(){
 		//---------≥ $750
 
 		array(
-			'name'     => '60-65-tw>=750_e_e_shares',
-			'name2'    => '60-65-tw>=750_e_e_shares2',
+			'name'     => '60_65_tw_750_e_e_shares',
+			'name2'    => '60_65_tw_750_e_e_shares2',
 			'label'    => 'Total Wages ≥ $750',
 			'default'  => '16.5',
 			'default2' => '16.5',
@@ -236,9 +236,9 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'     => '60-65-tw>=750_e_shares',
+			'name'     => '60_65_tw_750_e_shares',
 			'default'  => '7.5',
-			'name2'    => '60-65-tw>=750_e_shares2',
+			'name2'    => '60_65_tw_750_e_shares2',
 			'default2' => '7.5',
 			'desc'     => 'Enter employee\'s share, when total wages ≥ $750 <b>[a% (OW)]* + b% (AW)</b>',
 			'type'     => 'text',
@@ -254,7 +254,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '>65-tw<=50_e_e_shares',
+			'name'    => '65_tw_50_e_e_shares',
 			'label'   => 'Total Wages <=50',
 			'default' => '0',
 			'desc'    => 'Enter employee\'s & employer\'s share, when total wages <= 50',
@@ -262,7 +262,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '>65-tw<=50_e_shares',
+			'name'    => '65_tw_50_e_shares',
 			'default' => '0',
 			'desc'    => 'Enter employee\'s share, when total wages <= 50',
 			'type'    => 'text',
@@ -270,7 +270,7 @@ function cpf_formula_3rd_year_spr(){
 		//---------> $50 to $500
 
 		array(
-			'name'    => '>65-tw50_500_e_e_shares',
+			'name'    => '65_tw_50_500_e_e_shares',
 			'label'   => 'Total Wages > $50 to $500',
 			'default' => '7.5',
 			'desc'    => 'Enter employee\'s & employer\'s share, when total wages > $50 to $500 <b>( a% (TW) )</b>',
@@ -278,7 +278,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '>65-tw50_500_e_shares',
+			'name'    => '65_tw_50_500_e_shares',
 			'default' => '0',
 			'desc'    => 'Enter employee\'s share, when total wages > $50 to $500',
 			'type'    => 'text',
@@ -286,8 +286,8 @@ function cpf_formula_3rd_year_spr(){
 		//---------> $500 to < $750
 
 		array(
-			'name'     => '>65-tw500_750_e_e_shares',
-			'name2'    => '>65-tw500_750_e_e_shares2',
+			'name'     => '65_tw_500_750_e_e_shares',
+			'name2'    => '65_tw_500_750_e_e_shares2',
 			'label'    => 'Total Wages > $500 to < $750',
 			'default'  => '7.5',
 			'default2' => '0.15',
@@ -297,7 +297,7 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'    => '>65-tw500_750_e_shares',
+			'name'    => '65_tw_500_750_e_shares',
 			'default' => '0.225',
 			'desc'    => 'Enter employee\'s share, when total wages > $500 to < $750 <b>a (TW - $500)</b>',
 			'type'    => 'text',
@@ -305,8 +305,8 @@ function cpf_formula_3rd_year_spr(){
 		//---------≥ $750
 
 		array(
-			'name'     => '>65-tw>=750_e_e_shares',
-			'name2'    => '>65-tw>=750_e_e_shares2',
+			'name'     => '65_tw_750_e_e_shares',
+			'name2'    => '65_tw_750_e_e_shares2',
 			'label'    => 'Total Wages ≥ $750',
 			'default'  => '12.5',
 			'default2' => '12.5',
@@ -317,9 +317,9 @@ function cpf_formula_3rd_year_spr(){
 		),
 
 		array(
-			'name'     => '>65-tw>=750_e_shares',
+			'name'     => '65_tw_750_e_shares',
 			'default'  => '5',
-			'name2'    => '>65-tw>=750_e_shares2',
+			'name2'    => '65_tw_750_e_shares2',
 			'default2' => '5',
 			'desc'     => 'Enter employee\'s share, when total wages ≥ $750 <b>[a% (OW)]* + b% (AW)</b>',
 			'type'     => 'text',

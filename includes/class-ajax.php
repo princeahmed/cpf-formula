@@ -94,22 +94,72 @@ class CPF_Formula_Ajax {
 		$prage           = $data['prage'];
 		$cpf_donation    = $data['cpf_donation'];
 
+		$v = array(
+			'55_tw_50_e_e_shares'       => cpf_formula_get_settings( '55_tw_50_e_e_shares', 0, 'cpf_formula_1st_spr' ),
+			'55_tw_50_e_shares'         => cpf_formula_get_settings( '55_tw_50_e_shares', 0, 'cpf_formula_1st_spr' ),
+			'55_tw_50_500_e_e_shares'   => cpf_formula_get_settings( '55_tw_50_500_e_e_shares', 4, 'cpf_formula_1st_spr' ),
+			'55_tw_50_500_e_shares'     => cpf_formula_get_settings( '55_tw_50_500_e_shares', 0, 'cpf_formula_1st_spr' ),
+			'55_tw_500_750_e_e_shares'  => cpf_formula_get_settings( '55_tw_500_750_e_e_shares', 4, 'cpf_formula_1st_spr' ),
+			'55_tw_500_750_e_e_shares2' => cpf_formula_get_settings( '55_tw_500_750_e_e_shares2', 0.15, 'cpf_formula_1st_spr' ),
+			'55_tw_500_750_e_shares'    => cpf_formula_get_settings( '55_tw_500_750_e_shares', 0.15, 'cpf_formula_1st_spr' ),
+			'55_tw_750_e_e_shares'      => cpf_formula_get_settings( '55_tw_50_e_e_shares', 9, 'cpf_formula_1st_spr' ),
+			'55_tw_750_e_e_shares2'     => cpf_formula_get_settings( '55_tw_50_e_e_shares2', 9, 'cpf_formula_1st_spr' ),
+			'55_tw_750_e_shares'        => cpf_formula_get_settings( '55_tw_50_e_shares', 5, 'cpf_formula_1st_spr' ),
+			'55_tw_750_e_shares2'       => cpf_formula_get_settings( '55_tw_50_e_shares2', 5, 'cpf_formula_1st_spr' ),
+
+			'50_60_tw_50_e_e_shares'       => cpf_formula_get_settings( '50_60_tw_50_e_e_shares', 0, 'cpf_formula_1st_spr' ),
+			'50_60_tw_50_e_shares'         => cpf_formula_get_settings( '50_60_tw_50_e_shares', 0, 'cpf_formula_1st_spr' ),
+			'50_60_tw_50_500_e_e_shares'   => cpf_formula_get_settings( '50_60_tw_50_500_e_e_shares', 4, 'cpf_formula_1st_spr' ),
+			'50_60_tw_50_500_e_shares'     => cpf_formula_get_settings( '50_60_tw_50_500_e_shares', 0, 'cpf_formula_1st_spr' ),
+			'50_60_tw_500_750_e_e_shares'  => cpf_formula_get_settings( '50_60_tw_500_750_e_e_shares', 4, 'cpf_formula_1st_spr' ),
+			'50_60_tw_500_750_e_e_shares2' => cpf_formula_get_settings( '50_60_tw_500_750_e_e_shares2', 0.15, 'cpf_formula_1st_spr' ),
+			'50_60_tw_500_750_e_shares'    => cpf_formula_get_settings( '50_60_tw_500_750_e_shares', 0.15, 'cpf_formula_1st_spr' ),
+			'50_60_tw_750_e_e_shares'      => cpf_formula_get_settings( '50_60_tw_750_e_e_shares', 9, 'cpf_formula_1st_spr' ),
+			'50_60_tw_750_e_e_shares2'     => cpf_formula_get_settings( '50_60_tw_750_e_e_shares2', 9, 'cpf_formula_1st_spr' ),
+			'50_60_tw_750_e_shares'        => cpf_formula_get_settings( '50_60_tw_750_e_shares', 5, 'cpf_formula_1st_spr' ),
+			'50_60_tw_750_e_shares2'       => cpf_formula_get_settings( '50_60_tw_750_e_shares2', 5, 'cpf_formula_1st_spr' ),
+
+			'60_65_tw_50_e_e_shares'       => cpf_formula_get_settings( '60_65_tw_50_e_e_shares', 0, 'cpf_formula_1st_spr' ),
+			'60_65_tw_50_e_shares'         => cpf_formula_get_settings( '60_65_tw_50_e_shares', 0, 'cpf_formula_1st_spr' ),
+			'60_65_tw_50_500_e_e_shares'   => cpf_formula_get_settings( '60_65_tw_50_500_e_e_shares', 3.5, 'cpf_formula_1st_spr' ),
+			'60_65_tw_50_500_e_shares'     => cpf_formula_get_settings( '60_65_tw_50_500_e_shares', 0, 'cpf_formula_1st_spr' ),
+			'60_65_tw_500_750_e_e_shares'  => cpf_formula_get_settings( '60_65_tw_500_750_e_e_shares', 3.5, 'cpf_formula_1st_spr' ),
+			'60_65_tw_500_750_e_e_shares2' => cpf_formula_get_settings( '60_65_tw_500_750_e_e_shares2', 0.15, 'cpf_formula_1st_spr' ),
+			'60_65_tw_500_750_e_shares'    => cpf_formula_get_settings( '60_65_tw_500_750_e_shares', 0.15, 'cpf_formula_1st_spr' ),
+			'60_65_tw_750_e_e_shares'      => cpf_formula_get_settings( '60_65_tw_750_e_e_shares', 8.5, 'cpf_formula_1st_spr' ),
+			'60_65_tw_750_e_e_shares2'     => cpf_formula_get_settings( '60_65_tw_750_e_e_shares2', 8.5, 'cpf_formula_1st_spr' ),
+			'60_65_tw_750_e_shares'        => cpf_formula_get_settings( '60_65_tw_750_e_shares', 5, 'cpf_formula_1st_spr' ),
+			'60_65_tw_750_e_shares2'       => cpf_formula_get_settings( '60_65_tw_750_e_shares2', 5, 'cpf_formula_1st_spr' ),
+
+			'65_tw_50_e_e_shares'       => cpf_formula_get_settings( '65_tw_50_e_e_shares', 0, 'cpf_formula_1st_spr' ),
+			'65_tw_50_e_shares'         => cpf_formula_get_settings( '65_tw_50_e_shares', 0, 'cpf_formula_1st_spr' ),
+			'65_tw_50_500_e_e_shares'   => cpf_formula_get_settings( '65_tw_50_500_e_e_shares', 3.5, 'cpf_formula_1st_spr' ),
+			'65_tw_50_500_e_shares'     => cpf_formula_get_settings( '65_tw_50_500_e_shares', 0, 'cpf_formula_1st_spr' ),
+			'65_tw_500_750_e_e_shares'  => cpf_formula_get_settings( '65_tw_500_750_e_e_shares', 3.5, 'cpf_formula_1st_spr' ),
+			'65_tw_500_750_e_e_shares2' => cpf_formula_get_settings( '65_tw_500_750_e_e_shares2', 0.15, 'cpf_formula_1st_spr' ),
+			'65_tw_500_750_e_shares'    => cpf_formula_get_settings( '65_tw_500_750_e_shares', 0.15, 'cpf_formula_1st_spr' ),
+			'65_tw_750_e_e_shares'      => cpf_formula_get_settings( '65_tw_750_e_e_shares', 8.5, 'cpf_formula_1st_spr' ),
+			'65_tw_750_e_e_shares2'     => cpf_formula_get_settings( '65_tw_750_e_e_shares2', 8.5, 'cpf_formula_1st_spr' ),
+			'65_tw_750_e_shares'        => cpf_formula_get_settings( '65_tw_750_e_shares', 5, 'cpf_formula_1st_spr' ),
+			'65_tw_750_e_shares2'       => cpf_formula_get_settings( '65_tw_750_e_shares2', 5, 'cpf_formula_1st_spr' ),
+		);
+
 		if ( $age <= 55 ) {
 			if ( $totalWages <= 50 ) {
 				$TotalCPFContributions = 0;
 				$EmployeesShare        = 0;
 				$EmployerShare         = 0;
 			} elseif ( $totalWages > 50 && $totalWages < 500 ) {
-				$TotalCPFContributions = ( ( $totalWages * 4 ) / 100 );
+				$TotalCPFContributions = ( ( $totalWages * $v['55_tw_50_500_e_e_shares'] ) / 100 );
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 500 && $totalWages < 750 ) {
-				$TotalCPFContributions = ( ( ( $totalWages * 4 ) / 100 ) + 0.15 * ( $totalWages - 500 ) );
-				$EmployeesShare        = 0.15 * ( $totalWages - 500 );
+				$TotalCPFContributions = ( ( ( $totalWages * $v['55_tw_500_750_e_e_shares'] ) / 100 ) + $v['55_tw_500_750_e_e_shares2'] * ( $totalWages - 500 ) );
+				$EmployeesShare        = $v['55_tw_500_750_e_shares'] * ( $totalWages - 500 );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages >= 750 ) {
-				$TotalCPFContributions = ( ( ( $OrdinaryWages * 9 ) / 100 ) + ( ( $AdditionalWages * 9 ) / 100 ) );
-				$EmployeesShare        = ( ( ( $OrdinaryWages * 5 ) / 100 ) + ( ( $AdditionalWages * 5 ) / 100 ) );
+				$TotalCPFContributions = ( ( ( $OrdinaryWages * $v['55_tw_750_e_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['55_tw_750_e_e_shares2'] ) / 100 ) );
+				$EmployeesShare        = ( ( ( $OrdinaryWages * $v['55_tw_750_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['55_tw_750_e_shares'] ) / 100 ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
 
@@ -119,16 +169,16 @@ class CPF_Formula_Ajax {
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 50 && $totalWages < 500 ) {
-				$TotalCPFContributions = ( ( $totalWages * 4 ) / 100 );
+				$TotalCPFContributions = ( ( $totalWages * $v['55_60_tw_50_500_e_e_shares'] ) / 100 );
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 500 && $totalWages < 750 ) {
-				$TotalCPFContributions = ( ( ( $totalWages * 4 ) / 100 ) + 0.15 * ( $totalWages - 500 ) );
-				$EmployeesShare        = 0.15 * ( $totalWages - 500 );
+				$TotalCPFContributions = ( ( ( $totalWages * $v['55_60_tw_500_750_e_e_shares'] ) / 100 ) + $v['55_60_tw_500_750_e_e_shares2'] * ( $totalWages - 500 ) );
+				$EmployeesShare        = $v['55_60_tw_500_750_e_shares'] * ( $totalWages - 500 );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages >= 750 ) {
-				$TotalCPFContributions = ( ( ( $OrdinaryWages * 9 ) / 100 ) + ( ( $AdditionalWages * 9 ) / 100 ) );
-				$EmployeesShare        = ( ( ( $OrdinaryWages * 5 ) / 100 ) + ( ( $AdditionalWages * 5 ) / 100 ) );
+				$TotalCPFContributions = ( ( ( $OrdinaryWages * $v['55_60_tw_750_e_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['55_60_tw_750_e_e_shares2'] ) / 100 ) );
+				$EmployeesShare        = ( ( ( $OrdinaryWages * $v['55_60_tw_750_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['55_60_tw_750_e_shares2'] ) / 100 ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
 		} elseif ( $age > 60 && $age < 65 ) {
@@ -137,16 +187,16 @@ class CPF_Formula_Ajax {
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 50 && $totalWages < 500 ) {
-				$TotalCPFContributions = ( ( $totalWages * 3.5 ) / 100 );
+				$TotalCPFContributions = ( ( $totalWages * $v['60_65_tw_50_500_e_e_shares'] ) / 100 );
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 500 && $totalWages < 750 ) {
-				$TotalCPFContributions = ( ( ( $totalWages * 3.5 ) / 100 ) + 0.15 * ( $totalWages - 500 ) );
-				$EmployeesShare        = 0.15 * ( $totalWages - 500 );
+				$TotalCPFContributions = ( ( ( $totalWages * $v['60_65_tw_500_750_e_e_shares'] ) / 100 ) + $v['60_65_tw_500_750_e_e_shares2'] * ( $totalWages - 500 ) );
+				$EmployeesShare        = $v['60_65_tw_500_750_e_shares'] * ( $totalWages - 500 );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages >= 750 ) {
-				$TotalCPFContributions = ( ( ( $OrdinaryWages * 8.5 ) / 100 ) + ( ( $AdditionalWages * 8.5 ) / 100 ) );
-				$EmployeesShare        = ( ( ( $OrdinaryWages * 5 ) / 100 ) + ( ( $AdditionalWages * 5 ) / 100 ) );
+				$TotalCPFContributions = ( ( ( $OrdinaryWages * $v['60_65_tw_750_e_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['60_65_tw_750_e_e_shares2'] ) / 100 ) );
+				$EmployeesShare        = ( ( ( $OrdinaryWages * $v['60_65_tw_750_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['60_65_tw_750_e_shares2'] ) / 100 ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
 		} elseif ( $age >= 65 ) {
@@ -155,16 +205,16 @@ class CPF_Formula_Ajax {
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 50 && $totalWages < 500 ) {
-				$TotalCPFContributions = ( ( $totalWages * 3.5 ) / 100 );
+				$TotalCPFContributions = ( ( $totalWages * $v['65_tw_50_500_e_e_shares'] ) / 100 );
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 500 && $totalWages < 750 ) {
-				$TotalCPFContributions = ( ( ( $totalWages * 3.5 ) / 100 ) + 0.15 * ( $totalWages - 500 ) );
-				$EmployeesShare        = 0.15 * ( $totalWages - 500 );
+				$TotalCPFContributions = ( ( ( $totalWages * $v['65_tw_500_750_e_e_shares'] ) / 100 ) + $v['65_tw_500_750_e_e_shares2'] * ( $totalWages - 500 ) );
+				$EmployeesShare        = $v['65_tw_500_750_e_shares'] * ( $totalWages - 500 );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages >= 750 ) {
-				$TotalCPFContributions = ( ( ( $OrdinaryWages * 8.5 ) / 100 ) + ( ( $AdditionalWages * 8.5 ) / 100 ) );
-				$EmployeesShare        = ( ( ( $OrdinaryWages * 5 ) / 100 ) + ( ( $AdditionalWages * 5 ) / 100 ) );
+				$TotalCPFContributions = ( ( ( $OrdinaryWages * $v['65_tw_750_e_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['65_tw_750_e_e_shares2'] ) / 100 ) );
+				$EmployeesShare        = ( ( ( $OrdinaryWages * $v['65_tw_750_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['65_tw_750_e_shares2'] ) / 100 ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
 		}
@@ -199,22 +249,73 @@ class CPF_Formula_Ajax {
 		$age             = $data['age'];
 		$prage           = $data['prage'];
 		$cpf_donation    = $data['cpf_donation'];
+
+		$v = array(
+			'55_tw_50_e_e_shares'       => cpf_formula_get_settings( '55_tw_50_e_e_shares', 0, 'cpf_formula_2nd_spr' ),
+			'55_tw_50_e_shares'         => cpf_formula_get_settings( '55_tw_50_e_shares', 0, 'cpf_formula_2nd_spr' ),
+			'55_tw_50_500_e_e_shares'   => cpf_formula_get_settings( '55_tw_50_500_e_e_shares', 9, 'cpf_formula_2nd_spr' ),
+			'55_tw_50_500_e_shares'     => cpf_formula_get_settings( '55_tw_50_500_e_shares', 0, 'cpf_formula_2nd_spr' ),
+			'55_tw_500_750_e_e_shares'  => cpf_formula_get_settings( '55_tw_500_750_e_e_shares', 9, 'cpf_formula_2nd_spr' ),
+			'55_tw_500_750_e_e_shares2' => cpf_formula_get_settings( '55_tw_500_750_e_e_shares2', 0.45, 'cpf_formula_2nd_spr' ),
+			'55_tw_500_750_e_shares'    => cpf_formula_get_settings( '55_tw_500_750_e_shares', 0.45, 'cpf_formula_2nd_spr' ),
+			'55_tw_750_e_e_shares'      => cpf_formula_get_settings( '55_tw_50_e_e_shares', 24, 'cpf_formula_2nd_spr' ),
+			'55_tw_750_e_e_shares2'     => cpf_formula_get_settings( '55_tw_50_e_e_shares2', 24, 'cpf_formula_2nd_spr' ),
+			'55_tw_750_e_shares'        => cpf_formula_get_settings( '55_tw_50_e_shares', 15, 'cpf_formula_2nd_spr' ),
+			'55_tw_750_e_shares2'       => cpf_formula_get_settings( '55_tw_50_e_shares2', 15, 'cpf_formula_2nd_spr' ),
+
+			'50_60_tw_50_e_e_shares'       => cpf_formula_get_settings( '50_60_tw_50_e_e_shares', 0, 'cpf_formula_2nd_spr' ),
+			'50_60_tw_50_e_shares'         => cpf_formula_get_settings( '50_60_tw_50_e_shares', 0, 'cpf_formula_2nd_spr' ),
+			'50_60_tw_50_500_e_e_shares'   => cpf_formula_get_settings( '50_60_tw_50_500_e_e_shares', 6, 'cpf_formula_2nd_spr' ),
+			'50_60_tw_50_500_e_shares'     => cpf_formula_get_settings( '50_60_tw_50_500_e_shares', 0, 'cpf_formula_2nd_spr' ),
+			'50_60_tw_500_750_e_e_shares'  => cpf_formula_get_settings( '50_60_tw_500_750_e_e_shares', 6, 'cpf_formula_2nd_spr' ),
+			'50_60_tw_500_750_e_e_shares2' => cpf_formula_get_settings( '50_60_tw_500_750_e_e_shares2', 0.375, 'cpf_formula_2nd_spr' ),
+			'50_60_tw_500_750_e_shares'    => cpf_formula_get_settings( '50_60_tw_500_750_e_shares', 0.375, 'cpf_formula_2nd_spr' ),
+			'50_60_tw_750_e_e_shares'      => cpf_formula_get_settings( '50_60_tw_750_e_e_shares', 18.5, 'cpf_formula_2nd_spr' ),
+			'50_60_tw_750_e_e_shares2'     => cpf_formula_get_settings( '50_60_tw_750_e_e_shares2', 18.5, 'cpf_formula_2nd_spr' ),
+			'50_60_tw_750_e_shares'        => cpf_formula_get_settings( '50_60_tw_750_e_shares', 12.5, 'cpf_formula_2nd_spr' ),
+			'50_60_tw_750_e_shares2'       => cpf_formula_get_settings( '50_60_tw_750_e_shares2', 12.5, 'cpf_formula_2nd_spr' ),
+
+			'60_65_tw_50_e_e_shares'       => cpf_formula_get_settings( '60_65_tw_50_e_e_shares', 0, 'cpf_formula_2nd_spr' ),
+			'60_65_tw_50_e_shares'         => cpf_formula_get_settings( '60_65_tw_50_e_shares', 0, 'cpf_formula_2nd_spr' ),
+			'60_65_tw_50_500_e_e_shares'   => cpf_formula_get_settings( '60_65_tw_50_500_e_e_shares', 3.5, 'cpf_formula_2nd_spr' ),
+			'60_65_tw_50_500_e_shares'     => cpf_formula_get_settings( '60_65_tw_50_500_e_shares', 0, 'cpf_formula_2nd_spr' ),
+			'60_65_tw_500_750_e_e_shares'  => cpf_formula_get_settings( '60_65_tw_500_750_e_e_shares', 3.5, 'cpf_formula_2nd_spr' ),
+			'60_65_tw_500_750_e_e_shares2' => cpf_formula_get_settings( '60_65_tw_500_750_e_e_shares2', 0.225, 'cpf_formula_2nd_spr' ),
+			'60_65_tw_500_750_e_shares'    => cpf_formula_get_settings( '60_65_tw_500_750_e_shares', 0.225, 'cpf_formula_2nd_spr' ),
+			'60_65_tw_750_e_e_shares'      => cpf_formula_get_settings( '60_65_tw_750_e_e_shares', 11, 'cpf_formula_2nd_spr' ),
+			'60_65_tw_750_e_e_shares2'     => cpf_formula_get_settings( '60_65_tw_750_e_e_shares2', 11, 'cpf_formula_2nd_spr' ),
+			'60_65_tw_750_e_shares'        => cpf_formula_get_settings( '60_65_tw_750_e_shares', 7.5, 'cpf_formula_2nd_spr' ),
+			'60_65_tw_750_e_shares2'       => cpf_formula_get_settings( '60_65_tw_750_e_shares2', 7.5, 'cpf_formula_2nd_spr' ),
+
+			'65_tw_50_e_e_shares'       => cpf_formula_get_settings( '65_tw_50_e_e_shares', 0, 'cpf_formula_2nd_spr' ),
+			'65_tw_50_e_shares'         => cpf_formula_get_settings( '65_tw_50_e_shares', 0, 'cpf_formula_2nd_spr' ),
+			'65_tw_50_500_e_e_shares'   => cpf_formula_get_settings( '65_tw_50_500_e_e_shares', 3.5, 'cpf_formula_2nd_spr' ),
+			'65_tw_50_500_e_shares'     => cpf_formula_get_settings( '65_tw_50_500_e_shares', 0, 'cpf_formula_2nd_spr' ),
+			'65_tw_500_750_e_e_shares'  => cpf_formula_get_settings( '65_tw_500_750_e_e_shares', 3.5, 'cpf_formula_2nd_spr' ),
+			'65_tw_500_750_e_e_shares2' => cpf_formula_get_settings( '65_tw_500_750_e_e_shares2', 0.15, 'cpf_formula_2nd_spr' ),
+			'65_tw_500_750_e_shares'    => cpf_formula_get_settings( '65_tw_500_750_e_shares', 0.15, 'cpf_formula_2nd_spr' ),
+			'65_tw_750_e_e_shares'      => cpf_formula_get_settings( '65_tw_750_e_e_shares', 8.5, 'cpf_formula_2nd_spr' ),
+			'65_tw_750_e_e_shares2'     => cpf_formula_get_settings( '65_tw_750_e_e_shares2', 8.5, 'cpf_formula_2nd_spr' ),
+			'65_tw_750_e_shares'        => cpf_formula_get_settings( '65_tw_750_e_shares', 5, 'cpf_formula_2nd_spr' ),
+			'65_tw_750_e_shares2'       => cpf_formula_get_settings( '65_tw_750_e_shares2', 5, 'cpf_formula_2nd_spr' ),
+		);
+
 		if ( $age <= 55 ) {
 			if ( $totalWages <= 50 ) {
 				$TotalCPFContributions = 0;
 				$EmployeesShare        = 0;
 				$EmployerShare         = 0;
 			} elseif ( $totalWages > 50 && $totalWages < 500 ) {
-				$TotalCPFContributions = ( ( $totalWages * 17 ) / 100 );
+				$TotalCPFContributions = ( ( $totalWages * $v['55_tw_50_500_e_e_shares'] ) / 100 );
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 500 && $totalWages < 750 ) {
-				$TotalCPFContributions = ( ( ( $totalWages * 17 ) / 100 ) + 0.6 * ( $totalWages - 500 ) );
-				$EmployeesShare        = 0.6 * ( $totalWages - 500 );
+				$TotalCPFContributions = ( ( ( $totalWages * $v['55_tw_500_750_e_e_shares'] ) / 100 ) + $v['55_tw_500_750_e_e_shares2'] * ( $totalWages - 500 ) );
+				$EmployeesShare        = $v['55_tw_500_750_e_shares'] * ( $totalWages - 500 );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages >= 750 ) {
-				$TotalCPFContributions = ( ( ( $OrdinaryWages * 37 ) / 100 ) + ( ( $AdditionalWages * 37 ) / 100 ) );
-				$EmployeesShare        = ( ( ( $OrdinaryWages * 20 ) / 100 ) + ( ( $AdditionalWages * 20 ) / 100 ) );
+				$TotalCPFContributions = ( ( ( $OrdinaryWages * $v['55_tw_750_e_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['55_tw_750_e_e_shares2'] ) / 100 ) );
+				$EmployeesShare        = ( ( ( $OrdinaryWages * $v['55_tw_750_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['55_tw_750_e_shares2'] ) / 100 ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
 		} elseif ( $age > 55 && $age < 60 ) {
@@ -223,16 +324,16 @@ class CPF_Formula_Ajax {
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 50 && $totalWages < 500 ) {
-				$TotalCPFContributions = ( ( $totalWages * 13 ) / 100 );
+				$TotalCPFContributions = ( ( $totalWages * $v['50_60_tw_50_500_e_e_shares'] ) / 100 );
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 500 && $totalWages < 750 ) {
-				$TotalCPFContributions = ( ( ( $totalWages * 13 ) / 100 ) + 0.39 * ( $totalWages - 500 ) );
-				$EmployeesShare        = 0.39 * ( $totalWages - 500 );
+				$TotalCPFContributions = ( ( ( $totalWages * $v['50_60_tw_500_750_e_e_shares'] ) / 100 ) + $v['50_60_tw_500_750_e_e_shares2'] * ( $totalWages - 500 ) );
+				$EmployeesShare        = $v['50_60_tw_500_750_e_shares'] * ( $totalWages - 500 );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages >= 750 ) {
-				$TotalCPFContributions = ( ( ( $OrdinaryWages * 26 ) / 100 ) + ( ( $AdditionalWages * 26 ) / 100 ) );
-				$EmployeesShare        = ( ( ( $OrdinaryWages * 13 ) / 100 ) + ( ( $AdditionalWages * 13 ) / 100 ) );
+				$TotalCPFContributions = ( ( ( $OrdinaryWages * $v['50_60_tw_750_e_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['50_60_tw_750_e_e_shares2'] ) / 100 ) );
+				$EmployeesShare        = ( ( ( $OrdinaryWages * $v['50_60_tw_750_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['50_60_tw_750_e_shares2'] ) / 100 ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
 		} elseif ( $age > 60 && $age < 65 ) {
@@ -241,16 +342,16 @@ class CPF_Formula_Ajax {
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 50 && $totalWages < 500 ) {
-				$TotalCPFContributions = ( ( $totalWages * 9 ) / 100 );
+				$TotalCPFContributions = ( ( $totalWages * $v['60_65_tw_50_500_e_e_shares'] ) / 100 );
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 500 && $totalWages < 750 ) {
-				$TotalCPFContributions = ( ( ( $totalWages * 9 ) / 100 ) + 0.225 * ( $totalWages - 500 ) );
-				$EmployeesShare        = 0.225 * ( $totalWages - 500 );
+				$TotalCPFContributions = ( ( ( $totalWages * $v['60_65_tw_500_750_e_e_shares'] ) / 100 ) + $v['60_65_tw_500_750_e_e_shares2'] * ( $totalWages - 500 ) );
+				$EmployeesShare        = $v['60_65_tw_500_750_e_shares'] * ( $totalWages - 500 );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages >= 750 ) {
-				$TotalCPFContributions = ( ( ( $OrdinaryWages * 16.5 ) / 100 ) + ( ( $AdditionalWages * 16.5 ) / 100 ) );
-				$EmployeesShare        = ( ( ( $OrdinaryWages * 7.5 ) / 100 ) + ( ( $AdditionalWages * 7.5 ) / 100 ) );
+				$TotalCPFContributions = ( ( ( $OrdinaryWages * $v['60_65_tw_750_e_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['60_65_tw_750_e_e_shares2'] ) / 100 ) );
+				$EmployeesShare        = ( ( ( $OrdinaryWages * $v['60_65_tw_750_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['60_65_tw_750_e_shares2'] ) / 100 ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
 		} elseif ( $age >= 65 ) {
@@ -259,16 +360,16 @@ class CPF_Formula_Ajax {
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 50 && $totalWages < 500 ) {
-				$TotalCPFContributions = ( ( $totalWages * 7.5 ) / 100 );
+				$TotalCPFContributions = ( ( $totalWages * $v['65_tw_50_500_e_e_shares'] ) / 100 );
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 500 && $totalWages < 750 ) {
-				$TotalCPFContributions = ( ( ( $totalWages * 7.5 ) / 100 ) + 0.15 * ( $totalWages - 500 ) );
-				$EmployeesShare        = 0.15 * ( $totalWages - 500 );
+				$TotalCPFContributions = ( ( ( $totalWages * $v['65_tw_500_750_e_e_shares'] ) / 100 ) + $v['65_tw_500_750_e_e_shares2'] * ( $totalWages - 500 ) );
+				$EmployeesShare        = $v['65_tw_500_750_e_shares'] * ( $totalWages - 500 );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages >= 750 ) {
-				$TotalCPFContributions = ( ( ( $OrdinaryWages * 12.5 ) / 100 ) + ( ( $AdditionalWages * 12.5 ) / 100 ) );
-				$EmployeesShare        = ( ( ( $OrdinaryWages * 5 ) / 100 ) + ( ( $AdditionalWages * 5 ) / 100 ) );
+				$TotalCPFContributions = ( ( ( $OrdinaryWages * $v['65_tw_750_e_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['65_tw_750_e_e_shares2'] ) / 100 ) );
+				$EmployeesShare        = ( ( ( $OrdinaryWages * $v['65_tw_750_e_shares'] ) / 100 ) + ( ( $AdditionalWages * 5 ) / $v['65_tw_750_e_shares2'] ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
 		}
@@ -304,22 +405,72 @@ class CPF_Formula_Ajax {
 		$prage           = $data['prage'];
 		$cpf_donation    = $data['cpf_donation'];
 
+		$v = array(
+			'55_tw_50_e_e_shares'       => cpf_formula_get_settings( '55_tw_50_e_e_shares', 0, 'cpf_formula_3rd_spr' ),
+			'55_tw_50_e_shares'         => cpf_formula_get_settings( '55_tw_50_e_shares', 0, 'cpf_formula_3rd_spr' ),
+			'55_tw_50_500_e_e_shares'   => cpf_formula_get_settings( '55_tw_50_500_e_e_shares', 17, 'cpf_formula_3rd_spr' ),
+			'55_tw_50_500_e_shares'     => cpf_formula_get_settings( '55_tw_50_500_e_shares', 0, 'cpf_formula_3rd_spr' ),
+			'55_tw_500_750_e_e_shares'  => cpf_formula_get_settings( '55_tw_500_750_e_e_shares', 17, 'cpf_formula_3rd_spr' ),
+			'55_tw_500_750_e_e_shares2' => cpf_formula_get_settings( '55_tw_500_750_e_e_shares2', 0.6, 'cpf_formula_3rd_spr' ),
+			'55_tw_500_750_e_shares'    => cpf_formula_get_settings( '55_tw_500_750_e_shares', 0.6, 'cpf_formula_3rd_spr' ),
+			'55_tw_750_e_e_shares'      => cpf_formula_get_settings( '55_tw_50_e_e_shares', 37, 'cpf_formula_3rd_spr' ),
+			'55_tw_750_e_e_shares2'     => cpf_formula_get_settings( '55_tw_50_e_e_shares2', 37, 'cpf_formula_3rd_spr' ),
+			'55_tw_750_e_shares'        => cpf_formula_get_settings( '55_tw_50_e_shares', 20, 'cpf_formula_3rd_spr' ),
+			'55_tw_750_e_shares2'       => cpf_formula_get_settings( '55_tw_50_e_shares2', 20, 'cpf_formula_3rd_spr' ),
+
+			'50_60_tw_50_e_e_shares'       => cpf_formula_get_settings( '50_60_tw_50_e_e_shares', 0, 'cpf_formula_3rd_spr' ),
+			'50_60_tw_50_e_shares'         => cpf_formula_get_settings( '50_60_tw_50_e_shares', 0, 'cpf_formula_3rd_spr' ),
+			'50_60_tw_50_500_e_e_shares'   => cpf_formula_get_settings( '50_60_tw_50_500_e_e_shares', 13, 'cpf_formula_3rd_spr' ),
+			'50_60_tw_50_500_e_shares'     => cpf_formula_get_settings( '50_60_tw_50_500_e_shares', 0, 'cpf_formula_3rd_spr' ),
+			'50_60_tw_500_750_e_e_shares'  => cpf_formula_get_settings( '50_60_tw_500_750_e_e_shares', 13, 'cpf_formula_3rd_spr' ),
+			'50_60_tw_500_750_e_e_shares2' => cpf_formula_get_settings( '50_60_tw_500_750_e_e_shares2', 0.39, 'cpf_formula_3rd_spr' ),
+			'50_60_tw_500_750_e_shares'    => cpf_formula_get_settings( '50_60_tw_500_750_e_shares', 0.39, 'cpf_formula_3rd_spr' ),
+			'50_60_tw_750_e_e_shares'      => cpf_formula_get_settings( '50_60_tw_750_e_e_shares', 26, 'cpf_formula_3rd_spr' ),
+			'50_60_tw_750_e_e_shares2'     => cpf_formula_get_settings( '50_60_tw_750_e_e_shares2', 26, 'cpf_formula_3rd_spr' ),
+			'50_60_tw_750_e_shares'        => cpf_formula_get_settings( '50_60_tw_750_e_shares', 13, 'cpf_formula_3rd_spr' ),
+			'50_60_tw_750_e_shares2'       => cpf_formula_get_settings( '50_60_tw_750_e_shares2', 13, 'cpf_formula_3rd_spr' ),
+
+			'60_65_tw_50_e_e_shares'       => cpf_formula_get_settings( '60_65_tw_50_e_e_shares', 0, 'cpf_formula_3rd_spr' ),
+			'60_65_tw_50_e_shares'         => cpf_formula_get_settings( '60_65_tw_50_e_shares', 0, 'cpf_formula_3rd_spr' ),
+			'60_65_tw_50_500_e_e_shares'   => cpf_formula_get_settings( '60_65_tw_50_500_e_e_shares', 19, 'cpf_formula_3rd_spr' ),
+			'60_65_tw_50_500_e_shares'     => cpf_formula_get_settings( '60_65_tw_50_500_e_shares', 0, 'cpf_formula_3rd_spr' ),
+			'60_65_tw_500_750_e_e_shares'  => cpf_formula_get_settings( '60_65_tw_500_750_e_e_shares', 19, 'cpf_formula_3rd_spr' ),
+			'60_65_tw_500_750_e_e_shares2' => cpf_formula_get_settings( '60_65_tw_500_750_e_e_shares2', 0.225, 'cpf_formula_3rd_spr' ),
+			'60_65_tw_500_750_e_shares'    => cpf_formula_get_settings( '60_65_tw_500_750_e_shares', 0.225, 'cpf_formula_3rd_spr' ),
+			'60_65_tw_750_e_e_shares'      => cpf_formula_get_settings( '60_65_tw_750_e_e_shares', 16.5, 'cpf_formula_3rd_spr' ),
+			'60_65_tw_750_e_e_shares2'     => cpf_formula_get_settings( '60_65_tw_750_e_e_shares2', 16.5, 'cpf_formula_3rd_spr' ),
+			'60_65_tw_750_e_shares'        => cpf_formula_get_settings( '60_65_tw_750_e_shares', 7.5, 'cpf_formula_3rd_spr' ),
+			'60_65_tw_750_e_shares2'       => cpf_formula_get_settings( '60_65_tw_750_e_shares2', 7.5, 'cpf_formula_3rd_spr' ),
+
+			'65_tw_50_e_e_shares'       => cpf_formula_get_settings( '65_tw_50_e_e_shares', 0, 'cpf_formula_3rd_spr' ),
+			'65_tw_50_e_shares'         => cpf_formula_get_settings( '65_tw_50_e_shares', 0, 'cpf_formula_3rd_spr' ),
+			'65_tw_50_500_e_e_shares'   => cpf_formula_get_settings( '65_tw_50_500_e_e_shares', 7.5, 'cpf_formula_3rd_spr' ),
+			'65_tw_50_500_e_shares'     => cpf_formula_get_settings( '65_tw_50_500_e_shares', 0, 'cpf_formula_3rd_spr' ),
+			'65_tw_500_750_e_e_shares'  => cpf_formula_get_settings( '65_tw_500_750_e_e_shares', 7.5, 'cpf_formula_3rd_spr' ),
+			'65_tw_500_750_e_e_shares2' => cpf_formula_get_settings( '65_tw_500_750_e_e_shares2', 0.15, 'cpf_formula_3rd_spr' ),
+			'65_tw_500_750_e_shares'    => cpf_formula_get_settings( '65_tw_500_750_e_shares', 0.15, 'cpf_formula_3rd_spr' ),
+			'65_tw_750_e_e_shares'      => cpf_formula_get_settings( '65_tw_750_e_e_shares', 12.5, 'cpf_formula_3rd_spr' ),
+			'65_tw_750_e_e_shares2'     => cpf_formula_get_settings( '65_tw_750_e_e_shares2', 12.5, 'cpf_formula_3rd_spr' ),
+			'65_tw_750_e_shares'        => cpf_formula_get_settings( '65_tw_750_e_shares', 5, 'cpf_formula_3rd_spr' ),
+			'65_tw_750_e_shares2'       => cpf_formula_get_settings( '65_tw_750_e_shares2', 5, 'cpf_formula_3rd_spr' ),
+		);
+
 		if ( $age <= 55 ) {
 			if ( $totalWages <= 50 ) {
 				$TotalCPFContributions = 0;
 				$EmployeesShare        = 0;
 				$EmployerShare         = 0;
 			} elseif ( $totalWages > 50 && $totalWages < 500 ) {
-				$TotalCPFContributions = ( ( $totalWages * 17 ) / 100 );
+				$TotalCPFContributions = ( ( $totalWages * $v['55_tw_50_500_e_e_shares'] ) / 100 );
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 500 && $totalWages < 750 ) {
-				$TotalCPFContributions = ( ( ( $totalWages * 17 ) / 100 ) + 0.6 * ( $totalWages - 500 ) );
-				$EmployeesShare        = 0.6 * ( $totalWages - 500 );
+				$TotalCPFContributions = ( ( ( $totalWages * $v['55_tw_500_750_e_e_shares'] ) / 100 ) + $v['55_tw_500_750_e_e_shares2'] * ( $totalWages - 500 ) );
+				$EmployeesShare        = $v['55_tw_500_750_e_shares'] * ( $totalWages - 500 );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages >= 750 ) {
-				$TotalCPFContributions = ( ( ( $OrdinaryWages * 37 ) / 100 ) + ( ( $AdditionalWages * 37 ) / 100 ) );
-				$EmployeesShare        = ( ( ( $OrdinaryWages * 20 ) / 100 ) + ( ( $AdditionalWages * 20 ) / 100 ) );
+				$TotalCPFContributions = ( ( ( $OrdinaryWages * $v['55_tw_750_e_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['55_tw_750_e_e_shares2'] ) / 100 ) );
+				$EmployeesShare        = ( ( ( $OrdinaryWages * $v['55_tw_750_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['55_tw_750_e_shares2'] ) / 100 ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
 		} elseif ( $age > 55 && $age < 60 ) {
@@ -328,16 +479,16 @@ class CPF_Formula_Ajax {
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 50 && $totalWages < 500 ) {
-				$TotalCPFContributions = ( ( $totalWages * 13 ) / 100 );
+				$TotalCPFContributions = ( ( $totalWages * $v['50_60_tw_50_500_e_e_shares'] ) / 100 );
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 500 && $totalWages < 750 ) {
-				$TotalCPFContributions = ( ( ( $totalWages * 13 ) / 100 ) + 0.39 * ( $totalWages - 500 ) );
-				$EmployeesShare        = 0.39 * ( $totalWages - 500 );
+				$TotalCPFContributions = ( ( ( $totalWages * $v['50_60_tw_500_750_e_e_shares'] ) / 100 ) + $v['50_60_tw_500_750_e_e_shares2'] * ( $totalWages - 500 ) );
+				$EmployeesShare        = $v['50_60_tw_500_750_e_shares'] * ( $totalWages - 500 );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages >= 750 ) {
-				$TotalCPFContributions = ( ( ( $OrdinaryWages * 26 ) / 100 ) + ( ( $AdditionalWages * 26 ) / 100 ) );
-				$EmployeesShare        = ( ( ( $OrdinaryWages * 13 ) / 100 ) + ( ( $AdditionalWages * 13 ) / 100 ) );
+				$TotalCPFContributions = ( ( ( $OrdinaryWages * $v['50_60_tw_750_e_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['50_60_tw_750_e_e_shares2'] ) / 100 ) );
+				$EmployeesShare        = ( ( ( $OrdinaryWages * $v['50_60_tw_750_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['50_60_tw_750_e_shares2'] ) / 100 ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
 		} elseif ( $age > 60 && $age < 65 ) {
@@ -346,16 +497,16 @@ class CPF_Formula_Ajax {
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 50 && $totalWages < 500 ) {
-				$TotalCPFContributions = ( ( $totalWages * 9 ) / 100 );
+				$TotalCPFContributions = ( ( $totalWages * $v['60_65_tw_50_500_e_e_shares'] ) / 100 );
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 500 && $totalWages < 750 ) {
-				$TotalCPFContributions = ( ( ( $totalWages * 9 ) / 100 ) + 0.225 * ( $totalWages - 500 ) );
-				$EmployeesShare        = 0.225 * ( $totalWages - 500 );
+				$TotalCPFContributions = ( ( ( $totalWages * $v['60_65_tw_500_750_e_e_shares'] ) / 100 ) + $v['60_65_tw_500_750_e_e_shares2'] * ( $totalWages - 500 ) );
+				$EmployeesShare        = $v['60_65_tw_500_750_e_shares'] * ( $totalWages - 500 );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages >= 750 ) {
-				$TotalCPFContributions = ( ( ( $OrdinaryWages * 16.5 ) / 100 ) + ( ( $AdditionalWages * 16.5 ) / 100 ) );
-				$EmployeesShare        = ( ( ( $OrdinaryWages * 7.5 ) / 100 ) + ( ( $AdditionalWages * 7.5 ) / 100 ) );
+				$TotalCPFContributions = ( ( ( $OrdinaryWages * $v['60_65_tw_750_e_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['60_65_tw_750_e_e_shares2'] ) / 100 ) );
+				$EmployeesShare        = ( ( ( $OrdinaryWages * $v['60_65_tw_750_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['60_65_tw_750_e_shares2'] ) / 100 ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
 		} elseif ( $age >= 65 ) {
@@ -364,16 +515,16 @@ class CPF_Formula_Ajax {
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 50 && $totalWages < 500 ) {
-				$TotalCPFContributions = ( ( $totalWages * 7.5 ) / 100 );
+				$TotalCPFContributions = ( ( $totalWages * $v['65_tw_50_500_e_e_shares'] ) / 100 );
 				$EmployeesShare        = 0;
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages > 500 && $totalWages < 750 ) {
-				$TotalCPFContributions = ( ( ( $totalWages * 7.5 ) / 100 ) + 0.15 * ( $totalWages - 500 ) );
-				$EmployeesShare        = 0.15 * ( $totalWages - 500 );
+				$TotalCPFContributions = ( ( ( $totalWages * $v['65_tw_500_750_e_e_shares'] ) / 100 ) + $v['65_tw_500_750_e_e_shares2'] * ( $totalWages - 500 ) );
+				$EmployeesShare        = $v['65_tw_500_750_e_shares'] * ( $totalWages - 500 );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			} elseif ( $totalWages >= 750 ) {
-				$TotalCPFContributions = ( ( ( $OrdinaryWages * 12.5 ) / 100 ) + ( ( $AdditionalWages * 12.5 ) / 100 ) );
-				$EmployeesShare        = ( ( ( $OrdinaryWages * 5 ) / 100 ) + ( ( $AdditionalWages * 5 ) / 100 ) );
+				$TotalCPFContributions = ( ( ( $OrdinaryWages * $v['65_tw_750_e_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['65_tw_750_e_e_shares2'] ) / 100 ) );
+				$EmployeesShare        = ( ( ( $OrdinaryWages * $v['65_tw_750_e_shares'] ) / 100 ) + ( ( $AdditionalWages * $v['65_tw_750_e_shares2'] ) / 100 ) );
 				$EmployerShare         = ( $TotalCPFContributions - $EmployeesShare );
 			}
 		}
