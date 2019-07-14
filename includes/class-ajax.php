@@ -34,6 +34,7 @@ class CPF_Formula_Ajax {
 			$CPFDT             = $form_data['CPFDT'];
 			$totalWages        = $OrdinaryWages + (int) $AdditionalWages;
 			$sdl               = ( ( $totalWages * $sdl_percentage ) / 100 );
+			$sdl               = $sdl > 11.25 ? 11.25 : $sdl;
 			$birthdayParam     = $form_data['birthday'];
 			$age               = $this->age_calculate( $birthdayParam );
 			$pr_effective_date = $form_data['pr_effective_date'];
