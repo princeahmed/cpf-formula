@@ -5,13 +5,14 @@ defined( 'ABSPATH' ) || exit();
 
 ?>
 <form class="form-horizontal" role="form" id="cpf_cal_form">
-    <?php wp_nonce_field('calculate_contribution', '_nonce') ?>
+	<?php wp_nonce_field( 'calculate_contribution', '_nonce' ) ?>
 
     <div class="row">
         <div class="col-md-6">
             <div class="form-group row">
                 <div class="col-md-8">
                     <label for="usr">Your Payroll Month and Year:</label>
+
                     <select class="form-control" id="payroll_my" name="payroll_my">
                         <option value="">Select</option>
 						<?php
@@ -20,7 +21,9 @@ defined( 'ABSPATH' ) || exit();
 							for ( $m = 1; $m <= 12; $m ++ ) {
 								$month = date( 'M Y', mktime( 0, 0, 0, $m, 1, $y ) );
 
-								printf( '<option value="%s">%1$s</option>', $month );
+								$selected = $y == date( 'Y' ) && $m == date( 'm' ) ? 'selected' : '';
+
+								printf( '<option value="%s" %s>%1$s</option>', $month, $selected );
 							}
 						} ?>
                     </select>
