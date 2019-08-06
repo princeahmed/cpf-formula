@@ -24,6 +24,10 @@ defined( 'ABSPATH' ) || exit();
 								$selected = $y == date( 'Y' ) && $m == date( 'm' ) ? 'selected' : '';
 
 								printf( '<option value="%s" %s>%1$s</option>', $month, $selected );
+
+								if($y == date( 'Y' ) && $m == date( 'm' )){
+								    break;
+                                }
 							}
 						} ?>
                     </select>
