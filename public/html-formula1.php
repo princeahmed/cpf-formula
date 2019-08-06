@@ -18,16 +18,18 @@ defined( 'ABSPATH' ) || exit();
 						<?php
 						for ( $y = date( 'Y' ); $y >= 2016; $y -- ) {
 
-							for ( $m = 1; $m <= 12; $m ++ ) {
+							for ( $m = 12; $m >= 1; $m --) {
+
+								if($y == date( 'Y' ) && $m > date( 'm' )){
+									continue;
+								}
+
 								$month = date( 'M Y', mktime( 0, 0, 0, $m, 1, $y ) );
 
 								$selected = $y == date( 'Y' ) && $m == date( 'm' ) ? 'selected' : '';
 
 								printf( '<option value="%s" %s>%1$s</option>', $month, $selected );
 
-								if($y == date( 'Y' ) && $m == date( 'm' )){
-								    break;
-                                }
 							}
 						} ?>
                     </select>
